@@ -1,0 +1,50 @@
+.techs {
+    padding: 110px 70px;
+    background: #272727;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.techs__title {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 22px;
+    border-bottom: 1px solid #DADADA;
+    padding-bottom: 23px;
+    width: 100%;
+}
+
+.techs__subtitle {
+    padding: 0;
+    margin: 0;
+    font-size: 50px;
+    font-weight: 400;
+    margin-top: 90px;
+    margin-bottom: 26px;
+}
+
+.techs__about {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 100px;
+    max-width: 460px;
+    text-align: center;
+}
+
+.techs__cards {
+display: flex;
+flex-direction: row;
+}
+
+
+/* 
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center; */
