@@ -1,12 +1,8 @@
 .page {
     background: #202020;
     font-family: 'Inter';
-    /* max-width: 1280px; */
     display: flex;
     flex-direction: column;
-
     padding: 0;
-    margin: 0;
-    /* margin: auto; */
-    /* box-sizing: border-box; */
+    margin: auto;
 }

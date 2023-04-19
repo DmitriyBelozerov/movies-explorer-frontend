@@ -1,0 +1,77 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.profile__form {
+    display: flex;
+    flex-direction: column;
+    max-width: 410px;
+}
+
+.profile__title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 123px;
+    margin-top: 74px;
+    padding: 0;
+}
+
+.profile__block-input {
+    display: flex;
+    flex-direction: row;
+    width: 410px;
+    justify-content: space-between;
+    border-bottom: 1px solid #424242;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.profile__title-input {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    align-items: center;
+    white-space: nowrap
+}
+
+.profile__input {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 400;
+    background: none;
+    border: none;
+    text-align: end;
+    width: 100%;
+
+}
+
+.profile__block-input_type_end {
+    border: none;
+    padding-bottom: 0;
+}
+
+.profile__button-save {
+    margin-top: 220px;
+    margin-bottom: 16px;
+    background: none;
+    border: none;
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 400;
+
+}
+
+.profile__button-go-out {
+    background: none;
+    border: none;
+    color: #EE3465;
+    font-size: 13px;
+    font-weight: 500;
+}

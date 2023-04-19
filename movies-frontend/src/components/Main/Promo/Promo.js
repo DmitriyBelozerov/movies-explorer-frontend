@@ -1,5 +1,5 @@
 import './Promo.css';
-import banner from '../../images/banner.svg'
+import banner from '../../../images/banner.svg'
 
 function Promo() {
   return (

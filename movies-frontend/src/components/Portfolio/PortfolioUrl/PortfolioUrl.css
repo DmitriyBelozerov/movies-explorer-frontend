@@ -1,0 +1,29 @@
+.portfolioUrl {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 1px #424242;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.portfolioUrl_type_end {
+    border-bottom: none;
+    margin-bottom: 125px;
+
+}
+
+.portfolioUrl__title {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.portfolioUrl__img {
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    font-weight: 400;
+
+}

@@ -1,2 +1,9 @@
 .app {
+    background: #202020;
+    font-family: 'Inter';
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: auto;
 }

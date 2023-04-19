@@ -1,0 +1,28 @@
+.portfolio {
+    padding: 50px 70px 50px 70px;
+    background: #202020;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio__title {
+    padding: 0;
+    margin: 0 0 50px 0;
+    color: #8B8B8B;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.portfolio_urlBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio__ulr {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 400;
+    cursor: pointer;
+}
