@@ -21,7 +21,7 @@ function AboutProject() {
                 <p className="chart__subtitle">Front-end</p>
             </div>
         </section>
-    );
+    ); 
 }
 
 export default AboutProject;

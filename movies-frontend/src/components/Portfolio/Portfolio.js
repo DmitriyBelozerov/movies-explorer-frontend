@@ -7,9 +7,9 @@ function Portfolio() {
             <h2 className="portfolio__title">
                 Портфолио
             </h2>
-            <PortfolioUrl name="Статичный сайт"></PortfolioUrl>
-            <PortfolioUrl name="Адаптивный сайт"></PortfolioUrl>
-            <PortfolioUrl name="Одностраничное приложение" end="true"></PortfolioUrl>
+            <PortfolioUrl link='/movies' name="Статичный сайт"></PortfolioUrl>
+            <PortfolioUrl link='/movies' name="Адаптивный сайт"></PortfolioUrl>
+            <PortfolioUrl link='/movies' name="Одностраничное приложение" end="true"></PortfolioUrl>
 
         </section>
     );

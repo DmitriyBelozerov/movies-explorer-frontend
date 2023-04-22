@@ -1,4 +1,5 @@
 import './Navigation.css';
+import {Link} from 'react-router-dom';
 
 function Navigation(props) {
 const classNavigatorEnter =(`navigation__enter ${!props.main && 'navigation__enter_display_none'}`)
@@ -10,12 +11,12 @@ const classNavigatorAccount =(`navigation__account ${!props.movies && 'navigatio
 
     return (
         <section className="navigation">
-            <button className={classNavigatorRegistration}>{props.signUp}</button>
-            <button className={classNavigatorEnter}>{props.signIn}</button>
+            <Link to="/signup" className={classNavigatorRegistration}>{props.signUp}</Link>
+            <Link to="/signin" className={classNavigatorEnter}>{props.signIn}</Link>
 
-            <button className={classNavigatorFilms}>{props.films}</button>
-            <button className={classNavigatorMyFilms}>{props.myFilms}</button>
-            <button className={classNavigatorAccount}>{props.account}</button>
+            <Link to="/movies" className={classNavigatorFilms}>{props.films}</Link>
+            <Link to="/saved-movies" className={classNavigatorMyFilms}>{props.myFilms}</Link>
+            <Link to="/profile" className={classNavigatorAccount}>{props.account}</Link>
 
         </section>
     )

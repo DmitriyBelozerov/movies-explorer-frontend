@@ -7,7 +7,7 @@
 
 .moviesCardList__list {
     border-top: 1px solid #AAA;
-    
+
     width: max-content;
     justify-content: center;
     display: flex;
@@ -18,4 +18,15 @@
     list-style: none;
     margin: 0;
     padding: 70px 0 0 0;
+}
+
+
+@media (max-width: 770px) {
+    .moviesCardList {
+        padding: 70px 30px;
+    }
+
+    .moviesCardList__list {
+        gap: 47px 30px;
+    }
 }

@@ -3,6 +3,7 @@ import logo from '../../images/headerLogo.svg';
 import { Link } from 'react-router-dom';
 
 function PopupWithForm(props) {
+    
     return (
         <section className="popupWithForm">
             <div className="popupWithForm__block">
@@ -18,12 +19,12 @@ function PopupWithForm(props) {
                         <h3 className='form__input-title'>Пароль</h3>
                         <input type='password' className='form__input'></input>
                     </div>
-                    <button className="form__button" type="submit">
+                    <button className={`form__button ${props.button==="Войти" && "form__button_type_signin"}`} type="submit">
                         {props.button}
                     </button>
                 </form>
                 <p className='popupWithForm__question'>{props.question}
-                    <Link to='/signin' className='popupWithForm__link' href={props.link}>{props.linkName}</Link>
+                    <Link to={props.link} className='popupWithForm__link' >{props.linkName}</Link>
                 </p>
             </div>
         </section>

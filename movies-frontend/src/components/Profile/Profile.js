@@ -1,5 +1,6 @@
 import './Profile.css';
 import Header from '../Header/Header';
+import { Link } from 'react-router-dom';
 
 function Profile() {
     return (
@@ -30,9 +31,9 @@ function Profile() {
 
                 </form>
 
-                <button className="profile__button-go-out" type="submit">
+                <Link to='/' className="profile__button-go-out" type="submit">
                     Выйти из аккаунта
-                </button>
+                </Link>
 
             </div>
 

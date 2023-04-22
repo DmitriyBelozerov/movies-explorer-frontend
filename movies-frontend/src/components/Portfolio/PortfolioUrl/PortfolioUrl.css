@@ -5,6 +5,8 @@
     border-bottom: solid 1px #424242;
     margin-bottom: 20px;
     cursor: pointer;
+    text-decoration: none;
+    color: #FFF;
 }
 
 .portfolioUrl_type_end {

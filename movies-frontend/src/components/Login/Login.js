@@ -1,9 +1,16 @@
 import './Login.css';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 function Login() {
     return (
-        <section className="login">
-        </section>
+        <PopupWithForm
+        title="Рады видеть!"
+        button="Войти"
+        link="/signup"
+        question="Еще не зарегестрированы?"
+        linkName="Регистрация"
+        >
+        </PopupWithForm>
     );
 }
 

@@ -18,6 +18,7 @@
     justify-content: center;
     font-size: 12px;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .navigation__enter_display_none {
@@ -33,6 +34,7 @@
     background: none;
     border: none;
     color: #FFF;
+    text-decoration: none;
 }
 
 .navigation__registration_display_none {
@@ -51,6 +53,7 @@
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.4s linear 0s;
+    text-decoration: none;
 }
 
 .navigation__films:hover {
@@ -69,6 +72,7 @@
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.4s linear 0s;
+    text-decoration: none;
 }
 
 .navigation__myFilms:hover {
@@ -81,7 +85,6 @@
     font-size: 14px;
     font-weight: 500;
     font-family: "Inter";
-    background: none;
     border: none;
     color: #FFF;
     height: 32px;
@@ -91,6 +94,12 @@
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.4s linear 0s;
+    text-decoration: none;
+    text-align: center;
+    background-position: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .navigation__account:hover {

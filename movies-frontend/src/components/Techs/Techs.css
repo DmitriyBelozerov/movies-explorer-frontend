@@ -37,14 +37,23 @@
 }
 
 .techs__cards {
-display: flex;
-flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 
-/* 
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center; */
+
+@media (max-width: 770px) {
+    .techs {
+        padding: 90px 50px;
+    }
+
+    .techs__subtitle {
+        margin-top: 80px;
+        margin-bottom: 22px;
+
+    }
+    .techs__about {
+        margin-bottom: 83px;
+    }
+}

@@ -7,7 +7,7 @@ function Register() {
             <PopupWithForm
             title="Добро пожаловать!"
             button="Зарегестрироваться"
-            link=""
+            link="/signin"
             question="Уже зарегистрированы?"
             linkName="Войти"
             >

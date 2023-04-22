@@ -5,7 +5,7 @@ import Techs from '../Techs/Techs';
 import AboutMe from './AboutMe/AboutMe';
 import Portfolio from '../Portfolio/Portfolio';
 import Header from '../Header/Header';
-
+import Footer from '../Footer/Footer';
 
 function Main() {
   return (
@@ -16,8 +16,9 @@ function Main() {
       <Techs></Techs>
       <AboutMe></AboutMe>
       <Portfolio></Portfolio>
+      <Footer></Footer>
     </div>
   );
 }
-
+ 
 export default Main;

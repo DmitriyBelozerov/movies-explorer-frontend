@@ -36,8 +36,6 @@
     align-self: start;
 }
 
-.form__input-block {}
-
 .form__input-title {
     font-size: 10px;
     font-weight: 400;
@@ -55,8 +53,9 @@
     border: none;
     border-radius: 8px;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 400;
     padding-left: 15px;
+    color: #FFF;
 }
 
 .form__button {
@@ -69,7 +68,11 @@
     border-radius: 3px;
     font-size: 14px;
     font-weight: 500;
-    color: #fff;
+    color: #FFF;
+}
+
+.form__button_type_signin {
+    margin-top: 159px;
 }
 
 .popupWithForm__question {

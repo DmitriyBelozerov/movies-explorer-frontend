@@ -53,3 +53,10 @@
     width: 100%;
     align-items: center;
 }
+
+
+@media (max-width: 770px) {
+    .footer {
+        margin: 79px 30px 20px;
+    }
+}

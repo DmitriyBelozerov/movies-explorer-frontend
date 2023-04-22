@@ -26,3 +26,10 @@
     font-weight: 400;
     cursor: pointer;
 }
+
+
+@media (max-width: 770px) {
+    .portfolio {
+        padding: 0px 50px 90px;
+    }
+}

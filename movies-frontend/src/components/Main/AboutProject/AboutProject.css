@@ -46,7 +46,7 @@
     grid-template-columns: 1fr 4fr;
     text-align: center;
     align-items: center;
-    
+
 }
 
 .chart__title {
@@ -60,7 +60,7 @@
     justify-self: center;
     display: inline;
 
-    
+
 }
 
 .chart__title_active_true {
@@ -76,4 +76,22 @@
     margin: 0;
     padding: 10px 0 10px 0;
     align-self: center;
+}
+
+
+@media (max-width: 770px) {
+    .aboutProject {
+        padding: 90px 50px;
+    }
+
+    .aboutProject__section {
+        row-gap: 30px;
+        column-gap: 22px;
+        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
+    .aboutProject__subtitle {
+        margin-bottom: 22px;
+    }
 }

@@ -7,6 +7,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 50px 70px 60px 70px;
+    overflow: hidden;
+
 }
 
 .promo__title {
@@ -19,7 +21,28 @@
 }
 
 .promo__img {
-    max-width: 722px;
-    max-height: 244px;
+    width: 722px;
+    height: 244px;
     align-self: flex-end;
+    background-size: auto;
+    background-image: url('../../../images/banner.svg');
+    background-position: center;
+}
+
+@media (max-width: 770px) {
+    .promo {
+        padding: 300px 44px 70px;
+    }
+
+    .promo__title {
+        text-align: center;
+    }
+
+    .promo__img {
+        max-width: 680px;
+        align-self: center;
+        background-image: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 }

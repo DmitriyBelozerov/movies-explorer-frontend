@@ -16,3 +16,11 @@
     font-weight: 500;
     color: #fff;
 }
+
+
+@media (max-width: 770px) {
+    .moreMoves {
+        padding: 50px 30px 80px;
+
+    }
+}

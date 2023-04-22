@@ -77,3 +77,10 @@
     grid-area: C;
     align-self: end;
 }
+
+
+@media (max-width: 770px) {
+    .aboutMe {
+        padding: 90px 50px;
+    }
+}
