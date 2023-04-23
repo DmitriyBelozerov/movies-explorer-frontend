@@ -39,6 +39,7 @@
 .techs__cards {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 
@@ -46,6 +47,7 @@
 @media (max-width: 770px) {
     .techs {
         padding: 90px 50px;
+        background: #202020;
     }
 
     .techs__subtitle {
@@ -53,7 +55,35 @@
         margin-bottom: 22px;
 
     }
+
     .techs__about {
         margin-bottom: 83px;
     }
+}
+
+@media (max-width: 750px) {
+
+}
+
+
+@media (max-width: 330px) {
+    .techs {
+        padding: 70px 18px;
+    }
+
+    .techs__title {
+        border-bottom: 1px solid #000000;
+        font-size: 18px;
+    }
+
+    .techs__subtitle {
+        font-size: 30px;
+        margin-top: 60px;
+    }
+
+    .techs__about {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
 }

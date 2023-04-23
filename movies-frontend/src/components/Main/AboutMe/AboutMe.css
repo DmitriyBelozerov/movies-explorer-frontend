@@ -76,6 +76,12 @@
     font-weight: 500;
     grid-area: C;
     align-self: end;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
+}
+
+.aboutMe__gitnub:hover {
+    opacity: 0.6;
 }
 
 
@@ -83,4 +89,39 @@
     .aboutMe {
         padding: 90px 50px;
     }
+}
+
+@media (max-width: 580px) {
+    .aboutMe {
+        padding: 70px 14px;
+    }
+
+    .aboutMe__title {
+        font-size: 18px;
+    }
+
+    .aboutMe__article {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+    }
+    .aboutMe__photo {
+        height: auto;
+        width: fit-content;
+        
+    }
+    .aboutMe__name {
+        font-size: 30px;
+    }
+    .aboutMe__about {
+        font-size: 11px;
+        line-height: 16px;
+    }
+    .aboutMe__gitnub {
+        align-self: start;
+    }
+
 }

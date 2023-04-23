@@ -1,6 +1,6 @@
 .page {
     background: #202020;
-    font-family: 'Inter';
+    font-family: 'Inter', Helvetica, Arial;
     display: flex;
     flex-direction: column;
     padding: 0;

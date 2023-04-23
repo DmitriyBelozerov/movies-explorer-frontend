@@ -46,3 +46,16 @@
         background-repeat: no-repeat;
     }
 }
+
+@media (max-width: 330px) {
+    .promo {
+        padding: 183px 10px 40px;
+        min-height: 300px;
+    }
+    .promo__title {
+        font-size: 31px;
+        line-height: 39px;
+        margin-bottom: 60px;
+    }
+
+}

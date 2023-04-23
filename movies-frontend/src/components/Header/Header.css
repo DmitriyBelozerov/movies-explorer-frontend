@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 18px 70px 18px 70px;
+    padding: 18px 70px 18px;
     width: auto;
 
 }
@@ -29,5 +29,11 @@
 @media (max-width: 770px) {
     .header {
         padding: 18px 30px 18px;
+    }
+}
+
+@media (max-width: 330px) {
+    .header {
+        padding: 18px 14px 18px;
     }
 }

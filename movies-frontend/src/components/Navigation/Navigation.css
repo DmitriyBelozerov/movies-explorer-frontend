@@ -19,6 +19,12 @@
     font-size: 12px;
     font-weight: 500;
     text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
+}
+
+.navigation__enter:hover {
+    opacity: 0.6;
 }
 
 .navigation__enter_display_none {
@@ -35,6 +41,12 @@
     border: none;
     color: #FFF;
     text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
+}
+
+.navigation__registration:hover {
+    opacity: 0.6;
 }
 
 .navigation__registration_display_none {
@@ -106,6 +118,22 @@
     opacity: 0.6;
 }
 
+.navigation__burger-button {
+    display: none;
+    height: 44px;
+    width: 44px;
+    border: none;
+    background: none;
+    background-image: url('../../images/burgerButton.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navigation__burger-button_display_none {
+    display: none;
+}
+
+
 
 .navigation__account_display_none {
     display: none;
@@ -117,4 +145,38 @@
 
 .navigation__films_display_none {
     display: none;
+}
+
+@media (max-width: 770px) {
+    .navigation__burger-button {
+        display: block;
+    }
+
+    .navigation__account {
+        display: none;
+
+    }
+
+    .navigation__myFilms {
+        display: none;
+
+    }
+
+    .navigation__films {
+        display: none;
+
+    }
+}
+
+@media (max-width: 320px) {
+    .navigation__registration {
+        font-size: 10px;
+    }
+
+    .navigation__enter {
+        font-size: 10px;
+        height: 26px;
+        width: 54px;
+        margin-left: 14px;
+    }
 }

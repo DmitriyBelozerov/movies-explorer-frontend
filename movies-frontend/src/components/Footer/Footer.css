@@ -28,7 +28,7 @@
 }
 
 .footer__url:hover {
-    opacity: 0.6;
+    opacity: 0.6; 
 }
 
 .footer__year {
@@ -58,5 +58,30 @@
 @media (max-width: 770px) {
     .footer {
         margin: 79px 30px 20px;
+    }
+}
+
+@media (max-width: 330px) {
+    .footer {
+        margin: 79px 10px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__acticle {
+        font-size: 12px;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+    .footer__urls {
+        flex-direction: column;
+        align-items: center;
+        font-size: 12px;
+        gap: 12px;
+    }
+    .footer__year{
+        font-size: 12px;
+        margin-top: 30px;
+        color: #8B8B8B;
     }
 }

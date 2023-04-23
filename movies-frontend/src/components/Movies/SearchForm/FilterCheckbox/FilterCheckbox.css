@@ -59,3 +59,12 @@
     border-radius: 50%;
     transition: var(--duration)
 }
+
+@media (max-width: 330px) {
+    .filterCheckbox {
+        padding: 0;
+    }
+    .filterCheckbox__description {
+        font-size: 11px;
+    }
+}

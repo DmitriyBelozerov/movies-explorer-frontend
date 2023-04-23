@@ -7,17 +7,36 @@
         "B C";
 }
 
+.moviesCard__title {
+    margin: 0 0 0 14px;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+}
+
 @media (max-width: 770px) {
     .moviesCard {
         width: 339px;
-
     }
 
     .moviesCard__photo {
         width: 339px;
+    }
+}
 
+@media (max-width: 360px) {
+    .moviesCard {
+        width: 300px;
     }
 
+    .moviesCard__photo {
+        width: 300px;
+    }
+    .moviesCard__title {
+        font-size: 12px;
+        margin: 0;
+    }
 }
 
 .moviesCard__photo {
@@ -28,13 +47,7 @@
     grid-area: A;
 }
 
-.moviesCard__title {
-    margin: 0 0 0 14px;
-    padding: 0;
-    font-size: 13px;
-    font-weight: 500;
-    color: #fff;
-}
+
 
 .moviesCard__time {
     display: flex;

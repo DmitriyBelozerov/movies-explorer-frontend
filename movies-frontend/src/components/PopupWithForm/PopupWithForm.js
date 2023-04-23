@@ -13,11 +13,11 @@ function PopupWithForm(props) {
                     {props.children}
                     <div className='form__input-block'>
                         <h3 className='form__input-title'>E-mail</h3>
-                        <input type='email' className='form__input'></input>
+                        <input type='email' className='form__input' name='email' required></input>
                     </div>
                     <div className='form__input-block'>
                         <h3 className='form__input-title'>Пароль</h3>
-                        <input type='password' className='form__input'></input>
+                        <input type='password' className='form__input' name='password' required></input>
                     </div>
                     <button className={`form__button ${props.button==="Войти" && "form__button_type_signin"}`} type="submit">
                         {props.button}

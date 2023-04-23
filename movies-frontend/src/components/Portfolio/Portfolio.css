@@ -33,3 +33,13 @@
         padding: 0px 50px 90px;
     }
 }
+
+@media (max-width: 350px) {
+    .portfolio {
+        padding: 0px 14px 70px;
+    }
+
+    .portfolio__title {
+        font-size: 14px;
+    }
+}

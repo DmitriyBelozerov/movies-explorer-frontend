@@ -13,7 +13,7 @@ function Register() {
             >
                 <div className='form__input-block'>
                     <h3 className='form__input-title'>Имя</h3>
-                    <input type='email' className='form__input'></input>
+                    <input type='text' className='form__input' minLength='2' maxLength='40' name='name' required></input>
                 </div>
 
             </PopupWithForm>

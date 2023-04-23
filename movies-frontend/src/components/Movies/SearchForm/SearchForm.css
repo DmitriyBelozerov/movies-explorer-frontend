@@ -31,6 +31,7 @@
 .searchForm__buttonSubmit {
     width: 34px;
     height: 34px;
+    border: none;
     border-radius: 50%;
     background: #4285F4;
     background-image: url("../../../images/lupa.svg");
@@ -55,7 +56,19 @@
         flex-direction: column;
         align-items: center;
     }
+
     .searchForm__form {
         margin-bottom: 38px;
+    }
+}
+
+@media (max-width: 330px) {
+    .searchForm {
+        padding: 60px 10px 43px;
+
+    }
+    .searchForm__form {
+        margin-bottom: 45px;
+        
     }
 }

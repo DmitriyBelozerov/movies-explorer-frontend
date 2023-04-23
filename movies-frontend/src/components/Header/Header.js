@@ -4,7 +4,7 @@ import Navigation from '../Navigation/Navigation';
 
 
 function Header(props) {
-    const headerClass = (`header ${props.movies && 'header_type_movies'}`);
+    const headerClass = `header ${props.movies && 'header_type_movies'}`;
 
     return (
         <header className={headerClass}>

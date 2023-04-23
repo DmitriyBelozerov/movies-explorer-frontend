@@ -7,7 +7,14 @@
     cursor: pointer;
     text-decoration: none;
     color: #FFF;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
 }
+
+.portfolioUrl:hover {
+    opacity: 0.6;
+}
+
 
 .portfolioUrl_type_end {
     border-bottom: none;
@@ -28,4 +35,24 @@
     font-size: 30px;
     font-weight: 400;
 
+}
+
+@media (max-width: 350px) {
+    .portfolioUrl__title {
+        font-size: 18px;
+    }
+
+    .portfolioUrl__img {
+        font-size: 18px;
+    }
+
+    .portfolioUrl {
+        border-bottom: 1px solid #E6E6E6;
+
+    }
+
+    .portfolioUrl_type_end {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
 }
