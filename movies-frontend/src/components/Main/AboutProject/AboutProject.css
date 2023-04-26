@@ -1,5 +1,6 @@
 .aboutProject {
     padding: 110px 70px;
+    padding-bottom: 100px;
 }
 
 .aboutProject__title {
@@ -10,15 +11,16 @@
     font-size: 22px;
     border-bottom: 1px solid #DADADA;
     padding-bottom: 23px;
+    letter-spacing: -0.04em
 }
 
 .aboutProject__section {
     color: #fff;
     display: flex;
     flex-direction: row;
-    margin-top: 70px;
+    margin-top: 72px;
     margin-bottom: 110px;
-    gap: 40px;
+    gap: 53px;
 }
 
 .aboutProject__subtitle {
@@ -74,7 +76,7 @@
     font-weight: 500;
     background: #202020;
     margin: 0;
-    padding: 10px 0 10px 0;
+    padding: 15px 0 10px 0;
     align-self: center;
 }
 
@@ -102,14 +104,23 @@
     }
     .aboutProject__title {
         font-size: 18px;
+        padding-bottom: 27px;
     }
     .aboutProject__section {
         margin: 60px 0;
         display: grid;
+        gap: 53px;
     }
     .aboutProject__subtitle {
         margin-bottom: 16px;
+        letter-spacing: -0.09em;
     }
+
+    .aboutProject__about {
+        line-height: 16px;
+        font-size: 11px;
+    }
+
     .chart__title_active_true {
         width: 100px;
     

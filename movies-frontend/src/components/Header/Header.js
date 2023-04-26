@@ -1,6 +1,6 @@
 import './Header.css';
-import logo from '../../images/headerLogo.svg';
 import Navigation from '../Navigation/Navigation';
+import { Link } from 'react-router-dom';
 
 
 function Header(props) {
@@ -8,9 +8,7 @@ function Header(props) {
 
     return (
         <header className={headerClass}>
-            <div className="header__logo">
-                <img className="header__image" alt="логотип" src={logo} />
-            </div>
+            <Link  to='/' className="header__logo" />
             <Navigation main={props.main} movies={props.movies} signIn="Войти"
                 signUp="Регистрация" account="Аккаунт" myFilms="Сохраненные фильмы"
                 films="Фильмы">

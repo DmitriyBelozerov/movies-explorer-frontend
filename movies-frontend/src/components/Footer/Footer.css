@@ -12,6 +12,7 @@
     grid-area: c;
     display: flex;
     flex-direction: row;
+    justify-content: end;
     gap: 20px;
     font-size: 13px;
     font-weight: 400;
@@ -28,7 +29,7 @@
 }
 
 .footer__url:hover {
-    opacity: 0.6; 
+    opacity: 0.6;
 }
 
 .footer__year {
@@ -44,7 +45,7 @@
     grid-area: a;
     justify-self: center;
     padding-bottom: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 21px;
     text-align: center;
     color: #8b8b8b;
     font-size: 13px;
@@ -68,18 +69,21 @@
         flex-direction: column;
         align-items: center;
     }
+
     .footer__acticle {
         font-size: 12px;
         padding-bottom: 20px;
         margin-bottom: 30px;
     }
+
     .footer__urls {
         flex-direction: column;
         align-items: center;
         font-size: 12px;
         gap: 12px;
     }
-    .footer__year{
+
+    .footer__year {
         font-size: 12px;
         margin-top: 30px;
         color: #8B8B8B;

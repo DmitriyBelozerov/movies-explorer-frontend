@@ -1,4 +1,4 @@
-import './Portfolio.css'
+import './Portfolio.css';
 import PortfolioUrl from './PortfolioUrl/PortfolioUrl';
 
 function Portfolio() {
@@ -7,9 +7,9 @@ function Portfolio() {
             <h2 className="portfolio__title">
                 Портфолио
             </h2>
-            <PortfolioUrl link='/movies' name="Статичный сайт"></PortfolioUrl>
-            <PortfolioUrl link='/movies' name="Адаптивный сайт"></PortfolioUrl>
-            <PortfolioUrl link='/movies' name="Одностраничное приложение" end="true"></PortfolioUrl>
+            <PortfolioUrl link='https://github.com/DmitriyBelozerov/how-to-learn' name="Статичный сайт"></PortfolioUrl>
+            <PortfolioUrl link='https://github.com/DmitriyBelozerov/russian-travel' name="Адаптивный сайт"></PortfolioUrl>
+            <PortfolioUrl link='https://github.com/DmitriyBelozerov/react-mesto-api-full-gha' name="Одностраничное приложение" end="true"></PortfolioUrl>
 
         </section>
     );

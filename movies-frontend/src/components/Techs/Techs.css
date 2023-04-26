@@ -1,5 +1,6 @@
 .techs {
-    padding: 110px 70px;
+    padding: 102px 70px;
+    padding-bottom: 95px;
     background: #272727;
     color: #fff;
     display: flex;
@@ -15,6 +16,7 @@
     border-bottom: 1px solid #DADADA;
     padding-bottom: 23px;
     width: 100%;
+    letter-spacing: -0.04em
 }
 
 .techs__subtitle {
@@ -24,6 +26,7 @@
     font-weight: 400;
     margin-top: 90px;
     margin-bottom: 26px;
+    letter-spacing: -0.04em;
 }
 
 .techs__about {
@@ -31,9 +34,11 @@
     margin: 0;
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 100px;
+    margin-bottom: 96px;
     max-width: 460px;
     text-align: center;
+    letter-spacing: -0.04em;
+    line-height: 20px
 }
 
 .techs__cards {
@@ -68,7 +73,11 @@
 
 @media (max-width: 330px) {
     .techs {
-        padding: 70px 18px;
+        padding: 60px 18px;
+    }
+
+    .techs__cards {
+        width: 188px;
     }
 
     .techs__title {
@@ -78,12 +87,15 @@
 
     .techs__subtitle {
         font-size: 30px;
-        margin-top: 60px;
+        margin-top: 64px;
+        margin-bottom: 25px;
     }
 
     .techs__about {
         font-size: 11px;
         line-height: 16px;
+        margin-bottom: 45px;
     }
+
 
 }

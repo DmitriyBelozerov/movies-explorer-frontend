@@ -13,11 +13,11 @@
     margin: 0;
     padding: 0;
     font-size: 140px;
-    font-family: 400;
+    font-weight: 400;
 }
 
 .pageNotFound__description {
-    margin: 5px 0 184px 0;
+    margin: 10px 0 0px 0;
     padding: 0;
 }
 
@@ -28,6 +28,7 @@
     cursor: pointer;
     position: absolute;
     bottom: 30px;
+    font-size: 14px;
 }
 
 @media (max-width: 330px) {

@@ -10,10 +10,14 @@ function Movies() {
   return (
     <div className="movies">
       <Header movies="true"></Header>
-      <SearchForm></SearchForm>
-      <Preloader></Preloader>
-      <MoviesCardList movie='true'></MoviesCardList>
-      <MoreMoves></MoreMoves>
+
+      <main>
+        <SearchForm></SearchForm>
+        <Preloader></Preloader>
+        <MoviesCardList movie='true'></MoviesCardList>
+        <MoreMoves></MoreMoves>
+      </main>
+
       <Footer></Footer>
     </div>
   );

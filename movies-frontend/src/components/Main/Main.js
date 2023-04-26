@@ -11,14 +11,16 @@ function Main() {
   return (
     <div className="main">
       <Header main="true"></Header>
-      <Promo></Promo>
-      <AboutProject></AboutProject>
-      <Techs></Techs>
-      <AboutMe></AboutMe>
-      <Portfolio></Portfolio>
+      <main className='main-section'>
+        <Promo></Promo>
+        <AboutProject></AboutProject>
+        <Techs></Techs>
+        <AboutMe></AboutMe>
+        <Portfolio></Portfolio>
+      </main>
       <Footer></Footer>
     </div>
   );
 }
- 
+
 export default Main;

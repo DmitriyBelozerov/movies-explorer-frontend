@@ -1,6 +1,5 @@
 .promo {
     background: #073042;
-    min-height: 560px;
     width: auto;
     color: #FFF;
     display: flex;
@@ -18,6 +17,8 @@
     font-weight: 400;
     font-size: 40px;
     line-height: 52px;
+    letter-spacing: -0.04em;
+    margin-bottom: 102px;
 }
 
 .promo__img {
@@ -49,13 +50,13 @@
 
 @media (max-width: 330px) {
     .promo {
-        padding: 183px 10px 40px;
+        padding: 183px 10px 35px;
         min-height: 300px;
     }
     .promo__title {
         font-size: 31px;
         line-height: 39px;
-        margin-bottom: 60px;
+        margin-bottom: 52px;
     }
 
 }
