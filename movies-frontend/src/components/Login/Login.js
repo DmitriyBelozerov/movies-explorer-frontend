@@ -1,7 +1,7 @@
 import './Login.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
-function Login() {
+function Login(props) {
     return (
         <PopupWithForm
         title="Рады видеть!"
@@ -9,6 +9,7 @@ function Login() {
         link="/signup"
         question="Еще не зарегестрированы?"
         linkName="Регистрация"
+        onSubmit={props.onSubmit}
         >
         </PopupWithForm>
     );

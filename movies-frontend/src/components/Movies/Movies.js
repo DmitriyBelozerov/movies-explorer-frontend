@@ -6,15 +6,17 @@ import Preloader from './Preloader/Preloader';
 import MoreMoves from './MoreMoves/MoreMoves';
 import Footer from '../Footer/Footer';
 
-function Movies() {
+function Movies({ movies, handleSubmit }) {
+
+
   return (
     <div className="movies">
       <Header movies="true"></Header>
 
       <main>
-        <SearchForm></SearchForm>
+        <SearchForm onSubmit={handleSubmit}></SearchForm>
         <Preloader></Preloader>
-        <MoviesCardList movie='true'></MoviesCardList>
+        <MoviesCardList movie='true' movies={movies}></MoviesCardList>
         <MoreMoves></MoreMoves>
       </main>
 
