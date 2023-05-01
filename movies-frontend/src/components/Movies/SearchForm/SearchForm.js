@@ -4,6 +4,8 @@ import './SearchForm.css';
 
 function SearchForm(props) {
     const [valueSearch, setInputSearch] = React.useState('');
+    const [span, setSpan] = React.useState(false);
+
 
 
     function handleChangeInput(e) {
@@ -13,6 +15,7 @@ function SearchForm(props) {
     function handleSubmit(e) {
         e.preventDefault();
         props.onSubmit(valueSearch);
+        !valueSearch ? setSpan(true) : setSpan(false);
     }
 
 
@@ -24,6 +27,9 @@ function SearchForm(props) {
                 <button className="searchForm__buttonSubmit" type="submit"></button>
             </form>
             <FilterCheckbox></FilterCheckbox>
+            <span className={`searchForm__error-message ${span && 'searchForm__error-message_visible'}`}>
+                Нужно ввести ключевое слово
+            </span>
         </div>
     );
 }

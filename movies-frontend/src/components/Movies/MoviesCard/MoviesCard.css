@@ -1,5 +1,5 @@
 .moviesCard {
-    max-width: 360px;
+    width: 360px;
     position: relative;
     display: grid;
     grid-template-areas:
@@ -40,7 +40,7 @@
 }
 
 .moviesCard__photo {
-    max-width: 360px;
+    width: 360px;
     max-height: 201px;
     border-radius: 6px;
     margin-bottom: 14px;

@@ -1,9 +1,9 @@
 import './MoreMoves.css';
 
-function MoreMoves() {
+function MoreMoves(props) {
   return (
-    <div className="moreMoves">
-        <button className="moreMoves__button"  type="button">Ещё</button>
+    <div className={`moreMoves ${!props.visible && 'moreMoves_hiden_true'}`}>
+      <button className='moreMoves__button' type="button" onClick={props.handleClick}>Ещё</button>
     </div>
   );
 }

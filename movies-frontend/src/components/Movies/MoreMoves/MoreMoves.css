@@ -3,6 +3,10 @@
     padding: 47px 70px 80px 70px;
 }
 
+.moreMoves_hiden_true {
+    display: none;
+}
+
 .moreMoves__button {
     height: 36px;
     width: 100%;

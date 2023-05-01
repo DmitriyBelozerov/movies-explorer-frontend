@@ -19,24 +19,10 @@ import moviesApi from '../../utils/MoviesApi';
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [movies, setMovies] = React.useState([]);
+  const [myMovies, setMyMovies] = React.useState([]);
   const [selectedMovies, setSelectedMovies] = React.useState([]);
 
-
-  // const [userEmail, setUserEmail] = React.useState(null);
-
   const navigate = useNavigate();
-
-
-  function handleLogIn(email, password) {
-    mainApi.logIn(email, password)
-      .then((data) => {
-        setLoggedIn(true);
-        // setUserEmail(email);
-        navigate('/movies');
-      })
-      .catch(() => {
-      })
-  }
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -45,20 +31,51 @@ function App() {
           setMovies(data);
         })
         .catch(err => console.log(err))
+      mainApi.getMyMovies()
+        .then(data => {
+          setMyMovies(data.data);
+        })
+        .catch(err => console.log(err))
     } else {
       return
     }
   }, [loggedIn])
 
-  function searchMovies(valueSearch) {
-
-    const arr = movies.filter(item => {
-      return item.description.includes(valueSearch)
-    })
-    setSelectedMovies(arr)
-
+  function handleLogIn(email, password) {
+    mainApi.logIn(email, password)
+      .then((data) => {
+        setLoggedIn(true);
+        navigate('/movies');
+      })
+      .catch(() => {
+      })
   }
 
+  function searchMovies(valueSearch) {
+    if (valueSearch === '') {
+      return
+    }
+    const arr = movies.filter(item =>
+      item.description.includes(valueSearch)
+    )
+    setSelectedMovies(arr)
+  };
+
+  function handleMovieSave(movie) {
+    mainApi.saveNewMovie(movie)
+      .then((newMovie) => {
+        setMyMovies([newMovie.data, ...myMovies]);
+      })
+      .catch(err => console.log(err))
+  }
+
+  function handleDeleteFromSaved(movie) {
+    mainApi.deleteSavedMovie(movie._id)
+    .then((data) => {
+      setMyMovies(myMovies.filter(item => item._id !== movie._id));
+    })
+    .catch(err => console.log(err))
+  }
 
 
   return (
@@ -70,10 +87,10 @@ function App() {
           <Route path="/" element={<Main />} />
 
           <Route path="/movies" element={
-            <ProtectedRoute Component={<Movies movies={selectedMovies} handleSubmit={searchMovies} />} />
+            <ProtectedRoute Component={<Movies movies={selectedMovies} myMovies={myMovies} handleSubmit={searchMovies} handleSave={handleMovieSave} />} />
           } />
           <Route path="/saved-movies" element={
-            <ProtectedRoute Component={<SavedMovies />} />
+            <ProtectedRoute Component={<SavedMovies myMovies={myMovies} handleDelete={handleDeleteFromSaved}/>} />
           } />
           <Route path="/profile" element={
             <ProtectedRoute Component={<Profile />} />

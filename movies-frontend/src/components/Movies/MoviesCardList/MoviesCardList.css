@@ -5,6 +5,10 @@
     padding: 0px 70px 28px 70px;
 }
 
+.moviesCardList_hiden {
+    display: none;
+}
+
 .moviesCardList__list {
     border-top: 1px solid #AAA;
 
@@ -34,9 +38,6 @@
 @media (max-width: 360px) {
     .moviesCardList {
         padding: 0 10px 0 10px;
-
-    }
-    .moviesCardList__list {
 
     }
 }

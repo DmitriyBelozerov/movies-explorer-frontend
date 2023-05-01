@@ -1,4 +1,5 @@
 const apiOptions = {
+    // baseUrl: "http://localhost:3001",
     baseUrl: "https://api.belozerov.nomoredomains.monster",
     headers: {
         'Accept': 'application/json',
@@ -33,6 +34,48 @@ class MainApi {
                 password: `${passwordIn}`,
                 email: `${emailIn}`
             }),
+        })
+            .then(this._getJsonOrError)
+    }
+
+
+    getMyMovies() {
+        return fetch(`${this._baseUrl}/movies`, {
+            credentials: 'include',
+            headers: this._header,
+        })
+            .then(this._getJsonOrError)
+    }
+
+    saveNewMovie({
+        country, director, duration, year, description, image, trailerLink, id, nameRU, nameEN
+    }) {
+        return fetch(`${this._baseUrl}/movies`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: this._header,
+            body: JSON.stringify({
+                country: `${country}`,
+                director: `${director}`,
+                duration: `${duration}`,
+                year: `${year}`,
+                description: `${description}`,
+                image: `https://api.nomoreparties.co/${image.url}`,
+                trailerLink: `${trailerLink}`,
+                thumbnail: `https://api.nomoreparties.co/${image.formats.thumbnail.url}`,
+                movieId: `${id}`,
+                nameRU: `${nameRU}`,
+                nameEN: `${nameEN}`
+            }),
+        })
+            .then(this._getJsonOrError)
+    }
+
+    deleteSavedMovie(id) {
+        return fetch(`${this._baseUrl}/movies/${id}`, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: this._header,
         })
             .then(this._getJsonOrError)
     }

@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: relative;
 }
 
 .searchForm__form {
@@ -54,6 +55,18 @@
 
 .searchForm__buttonSubmit:hover {
     opacity: 0.6;
+}
+
+.searchForm__error-message {
+    position: absolute;
+    bottom: 60px;
+    color:#EE3465;
+    font-size: 10px;
+    display: none;
+}
+
+.searchForm__error-message_visible {
+    display: block;
 }
 
 
