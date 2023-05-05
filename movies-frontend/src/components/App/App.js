@@ -40,6 +40,18 @@ function App() {
 
   React.useEffect(() => {
     if (loggedIn) {
+      moviesApi.getMovies()
+        .then(data => {
+          setMovies(data);
+          setIsOpenMoviesSpan(false);
+        })
+        .catch(() => {
+          setIsOpenMoviesSpan(true)
+          setMessageError(ERROR_SERVER_MESSAGE)
+        })
+        .finally(() => {
+          setIsOpenPreloader(false);
+        })
       mainApi.getMyMovies()
         .then(data => {
           setMyMovies(data.data);
@@ -97,37 +109,26 @@ function App() {
   }
 
   function searchMovies(valueSearch) {
-    setIsOpenPreloader(true);
-    moviesApi.getMovies()
-      .then(data => {
-        setMovies(data);
-        setIsOpenMoviesSpan(false);
-        if (valueSearch === '') {
-          return
-        } else if (valueCheckBox) {
-          const arrMovies = movies.filter(item =>
-            item.description.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
-          );
-          setSelectedMovies(arrMovies)
-          localStorage.setItem('moviesView', JSON.stringify(arrMovies));
-          !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
-        } else {
-          const arrMovies = movies.filter(item =>
-            item.description.includes(valueSearch)
-          );
-          setSelectedMovies(arrMovies);
-          localStorage.setItem('moviesView', JSON.stringify(arrMovies));
-          !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
-        }
-      })
-      .catch(() => {
-        setIsOpenMoviesSpan(true)
-        setMessageError(ERROR_SERVER_MESSAGE)
-      })
-      .finally(() => {
-        setIsOpenPreloader(false);
-      })
-  };
+    if (valueSearch === '') {
+      return
+    } else if (valueCheckBox) {
+      const arrMovies = movies.filter(item =>
+        item.description.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
+      );
+      setSelectedMovies(arrMovies)
+      localStorage.setItem('moviesView', JSON.stringify(arrMovies));
+      !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
+    } else {
+      const arrMovies = movies.filter(item =>
+        item.description.includes(valueSearch)
+      );
+      setSelectedMovies(arrMovies);
+      localStorage.setItem('moviesView', JSON.stringify(arrMovies));
+      !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
+    }
+  }
+
+
 
   function searchMyMovies(valueSearch) {
     if (valueSearch === '') {

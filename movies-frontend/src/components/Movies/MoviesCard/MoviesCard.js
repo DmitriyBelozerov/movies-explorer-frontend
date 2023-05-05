@@ -30,8 +30,6 @@ function MoviesCard(props) {
         props.onMovieDelete(props.data);
     }
 
- console.log(props.data.trailerLink);
-
     return (
         <li className="moviesCard">
             <a className="moviesCard__link-to-treiler" href={props.data.trailerLink} target='blanc'>
