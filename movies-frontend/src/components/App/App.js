@@ -61,8 +61,7 @@ function App() {
         setLoggedIn(true);
         navigate('/movies');
       })
-      .catch(() => {
-      })
+      .catch(err => console.log(err))
   }
 
   function handleExit() {
@@ -71,8 +70,7 @@ function App() {
         setLoggedIn(false);
         navigate('/');
       })
-      .catch(() => {
-      })
+      .catch(err => console.log(err))
   }
 
   function handleRegistrations(email, password, name) {
@@ -128,7 +126,6 @@ function App() {
       })
       .finally(() => {
         setIsOpenPreloader(false);
-
       })
   };
 
@@ -160,7 +157,6 @@ function App() {
       .catch(() => {
         setIsOpenMoviesSpan(true)
         setMessageError(ERROR_SERVER_MESSAGE)
-
       })
   }
 
