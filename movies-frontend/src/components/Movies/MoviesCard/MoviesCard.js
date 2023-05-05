@@ -30,9 +30,13 @@ function MoviesCard(props) {
         props.onMovieDelete(props.data);
     }
 
+ console.log(props.data.trailerLink);
+
     return (
         <li className="moviesCard">
-            <img alt={props.title} className="moviesCard__photo" src={imageUrl} />
+            <a className="moviesCard__link-to-treiler" href={props.data.trailerLink} target='blanc'>
+                <img alt={props.title} className="moviesCard__photo" src={imageUrl} />
+            </a>
             <h2 className="moviesCard__title">{props.title}</h2>
             <article className="moviesCard__time">{duration}</article>
             <button className={moviesCardAddSavedButton} type="button" aria-label="saved" onClick={handleSave}>Сохранить</button>

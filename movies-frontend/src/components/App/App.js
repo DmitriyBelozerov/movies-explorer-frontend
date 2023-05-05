@@ -25,29 +25,21 @@ function App() {
   const [myMovies, setMyMovies] = React.useState([]);
   const [selectedMovies, setSelectedMovies] = React.useState([]);
   const [selectedMyMovies, setSelectedMyMovies] = React.useState([]);
-
   const [errMessage, setErrMessage] = React.useState('');
-  const [valueCheckBox, setValueCheckBox] = React.useState(false);
+  const [valueCheckBox, setValueCheckBox] = React.useState(getValueCheckBox());
   const [isOpenPreloader, setIsOpenPreloader] = React.useState(false);
   const [isOpenMoviesSpan, setIsOpenMoviesSpan] = React.useState(false);
   const [messageError, setMessageError] = React.useState('');
+  const [message, setMessage] = React.useState('');
 
-  
-
+  function getValueCheckBox() {
+    return localStorage.getItem('valueCheckBox') === 'true' ? true : false
+  }
 
   const navigate = useNavigate();
 
   React.useEffect(() => {
     if (loggedIn) {
-      moviesApi.getMovies()
-        .then(data => {
-          setMovies(data);
-          setIsOpenMoviesSpan(false)
-        })
-        .catch(() => {
-          setIsOpenMoviesSpan(true)
-          setMessageError(ERROR_SERVER_MESSAGE)
-        })
       mainApi.getMyMovies()
         .then(data => {
           setMyMovies(data.data);
@@ -98,29 +90,46 @@ function App() {
     mainApi.editProfile(email, name)
       .then((data) => {
         setCurrentUser(data.data);
+        setMessage('Данные профиля успешно обновлены')
       })
       .catch((err) => {
         setErrMessage(err.message);
+        setMessage('')
       })
   }
 
-
   function searchMovies(valueSearch) {
-    if (valueSearch === '') {
-      return
-    } else if (valueCheckBox) {
-      const arrMovies = movies.filter(item =>
-        item.description.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
-      );
-      setSelectedMovies(arrMovies)
-      !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
-    } else {
-      const arrMovies = movies.filter(item =>
-        item.description.includes(valueSearch)
-      );
-      setSelectedMovies(arrMovies);
-      !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
-    }
+    setIsOpenPreloader(true);
+    moviesApi.getMovies()
+      .then(data => {
+        setMovies(data);
+        setIsOpenMoviesSpan(false);
+        if (valueSearch === '') {
+          return
+        } else if (valueCheckBox) {
+          const arrMovies = movies.filter(item =>
+            item.description.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
+          );
+          setSelectedMovies(arrMovies)
+          localStorage.setItem('moviesView', JSON.stringify(arrMovies));
+          !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
+        } else {
+          const arrMovies = movies.filter(item =>
+            item.description.includes(valueSearch)
+          );
+          setSelectedMovies(arrMovies);
+          localStorage.setItem('moviesView', JSON.stringify(arrMovies));
+          !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
+        }
+      })
+      .catch(() => {
+        setIsOpenMoviesSpan(true)
+        setMessageError(ERROR_SERVER_MESSAGE)
+      })
+      .finally(() => {
+        setIsOpenPreloader(false);
+
+      })
   };
 
   function searchMyMovies(valueSearch) {
@@ -163,8 +172,9 @@ function App() {
       .catch(err => console.log(err))
   }
 
-  function handleChangeCheckBox(value) {
-    setValueCheckBox(value);
+  function handleChangeCheckBox() {
+    setValueCheckBox(!valueCheckBox);
+    localStorage.setItem('valueCheckBox', !valueCheckBox);
   }
 
   return (
@@ -179,16 +189,16 @@ function App() {
             <Route path="/movies" element={
               <ProtectedRoute Component={<Movies movies={selectedMovies} myMovies={myMovies} handleSubmit={searchMovies}
                 handleSave={handleMovieSave} handleCheckBox={handleChangeCheckBox} isOpenPreloader={isOpenPreloader}
-                isOpenMoviesSpan={isOpenMoviesSpan} messageError={messageError} />} />
+                isOpenMoviesSpan={isOpenMoviesSpan} messageError={messageError} valueCheckBox={valueCheckBox} />} />
             } />
 
             <Route path="/saved-movies" element={
               <ProtectedRoute Component={<SavedMovies myMovies={myMovies} selectedMovies={selectedMyMovies}
                 handleSubmit={searchMyMovies} handleCheckBox={handleChangeCheckBox} isOpenMoviesSpan={isOpenMoviesSpan}
-                handleDelete={handleDeleteFromSaved} />} />
+                handleDelete={handleDeleteFromSaved} valueCheckBox={valueCheckBox} />} />
             } />
             <Route path="/profile" element={
-              <ProtectedRoute Component={<Profile onGoOut={handleExit} onSubmit={handleEditProfile} />} />
+              <ProtectedRoute Component={<Profile onGoOut={handleExit} onSubmit={handleEditProfile} message={message} />} />
             } />
 
             <Route path="*" element={<PageNotFound />} />

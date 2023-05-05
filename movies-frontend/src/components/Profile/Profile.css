@@ -55,6 +55,14 @@
 
 }
 
+.profile__message {
+    color: #FFF;
+    font-size: 12px;
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
 .profile__block-input_type_end {
     border: none;
     padding-bottom: 0;

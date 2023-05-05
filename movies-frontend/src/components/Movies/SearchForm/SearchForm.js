@@ -8,7 +8,7 @@ function SearchForm(props) {
 
     function getValueCheckBox() {
         return localStorage.getItem('valueInput');
-      }
+    }
 
     function handleChangeInput(e) {
         setInputSearch(e.target.value);
@@ -22,7 +22,6 @@ function SearchForm(props) {
 
     }
 
-
     return (
         <div className="searchForm">
             <form className="searchForm__form" onSubmit={handleSubmit}>
@@ -30,7 +29,7 @@ function SearchForm(props) {
                     value={valueSearch || ''} onChange={handleChangeInput} />
                 <button className="searchForm__buttonSubmit" type="submit"></button>
             </form>
-            <FilterCheckbox handleChangeCheckBox={props.handleChangeCheckBox}></FilterCheckbox>
+            <FilterCheckbox handleChangeCheckBox={props.handleChangeCheckBox} valueCheckBox={props.valueCheckBox}></FilterCheckbox>
             <span className={`searchForm__error-message ${span && 'searchForm__error-message_visible'}`}>
                 Нужно ввести ключевое слово
             </span>

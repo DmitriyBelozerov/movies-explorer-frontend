@@ -8,11 +8,14 @@ import MoreMoves from './MoreMoves/MoreMoves';
 import Footer from '../Footer/Footer';
 import MoviesSpan from '../MoviesSpan/MoviesSpan';
 
-function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, isOpenPreloader, isOpenMoviesSpan, messageError }) {
-  const [moviesView, setMoviesView] = React.useState([]);
+function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, isOpenPreloader, isOpenMoviesSpan, messageError, valueCheckBox }) {
+  const [moviesView, setMoviesView] = React.useState(getMoviesView());
   const [hidenButtonMoreMovies, setHidenButtonMoreMovies] = React.useState(false);
   const [quantityMovies, setQuantityMovies] = React.useState(null);
 
+  function getMoviesView() {
+    return JSON.parse(localStorage.getItem('moviesView'));
+  }
 
   React.useEffect(() => {
     setMoviesView(movies.filter((item, index) => { return index < quantityMovies }));
@@ -49,7 +52,7 @@ function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, is
       <Header/>
 
       <main className="movies__main">
-        <SearchForm onSubmit={handleSubmit} handleChangeCheckBox={handleCheckBox}></SearchForm>
+        <SearchForm onSubmit={handleSubmit} handleChangeCheckBox={handleCheckBox} valueCheckBox={valueCheckBox}></SearchForm>
         <Preloader isOpen={isOpenPreloader}></Preloader>
         <MoviesSpan isOpen={isOpenMoviesSpan} message={messageError}/>
         <MoviesCardList movie='true' movies={moviesView} myMovies={myMovies}  handleSave={handleSave} ></MoviesCardList>

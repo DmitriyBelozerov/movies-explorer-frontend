@@ -7,6 +7,11 @@
         "B C";
 }
 
+.moviesCard__link-to-treiler {
+    display: block;
+    grid-area: A;
+}
+
 .moviesCard__title {
     margin: 0 0 0 14px;
     padding: 0;
@@ -44,7 +49,7 @@
     max-height: 201px;
     border-radius: 6px;
     margin-bottom: 14px;
-    grid-area: A;
+
 }
 
 
@@ -132,10 +137,10 @@
     opacity: 0.8;
 }
 
-.moviesCard__photo:hover~.moviesCard__add-to-saved {
+.moviesCard__link-to-treiler:hover~.moviesCard__add-to-saved {
     display: block;
 }
 
-.moviesCard__photo:hover~.moviesCard__delete {
+.moviesCard__link-to-treiler:hover~.moviesCard__delete {
     display: block;
 }

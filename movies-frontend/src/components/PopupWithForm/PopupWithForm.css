@@ -53,8 +53,12 @@
 
 .form__input-block {
     margin: 0;
-    padding: 0;
+    padding: 0 0 10px;
     width: 100%;
+}
+
+.form__input-block_type_hiden {
+    display: none;
 }
 
 .form__input-title {
@@ -67,7 +71,7 @@
 
 .form__input {
     width: calc(100% - 15px);
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     height: 46px;
     background: #2F2F2F;
     border: none;
@@ -79,8 +83,9 @@
 }
 
 .form__error-message {
-    color: #FFF;
-    font-size: 14px;
+    color: #f8b3b3;
+    font-size: 12px;
+    padding-bottom: 20px;
 }
 
 .form__button {
@@ -103,6 +108,11 @@
     opacity: 0.6;
 }
 
+.form__button_type_disabled {
+    opacity: 1;
+    background-color: #202020;
+}
+ 
 
 .popupWithForm__question {
     font-size: 14px;
