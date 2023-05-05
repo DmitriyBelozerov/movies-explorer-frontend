@@ -2,9 +2,9 @@ import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList(props) {
-
+  console.log(props.movies);
   return (
-    <section className={`moviesCardList ${(props.movies.length < 1 || props.movies.length === undefined) ? 'moviesCardList_hiden' : ''}`}>
+    <section className={`moviesCardList ${props.movies ? 'moviesCardList_hiden' : ''}`}>
       <ul className="moviesCardList__list">
         {props.movies.map(item => (
           <MoviesCard key={`props.movie ? ${item.id} : ${item._id}`} movieType={props.movie} title={item.nameRU} image={item.image.url}
