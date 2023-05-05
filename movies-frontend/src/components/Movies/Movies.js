@@ -14,7 +14,7 @@ function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, is
   const [quantityMovies, setQuantityMovies] = React.useState(null);
 
   function getMoviesView() {
-    return JSON.parse(localStorage.getItem('moviesView'));
+    return JSON.parse(localStorage.getItem('moviesView')) || [];
   }
 
   React.useEffect(() => {
