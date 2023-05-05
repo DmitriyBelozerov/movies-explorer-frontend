@@ -78,6 +78,11 @@
     color: #FFF;
 }
 
+.form__error-message {
+    color: #FFF;
+    font-size: 14px;
+}
+
 .form__button {
     width: 100%;
     margin-top: auto;
@@ -140,6 +145,10 @@
     }
 
     .popupWithForm__question {
+        font-size: 12px;
+    }
+
+    .form__error-message {
         font-size: 12px;
     }
 }

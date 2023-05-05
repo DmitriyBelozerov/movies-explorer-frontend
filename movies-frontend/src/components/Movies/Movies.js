@@ -6,8 +6,9 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Preloader from './Preloader/Preloader';
 import MoreMoves from './MoreMoves/MoreMoves';
 import Footer from '../Footer/Footer';
+import MoviesSpan from '../MoviesSpan/MoviesSpan';
 
-function Movies({ movies, myMovies, handleSubmit, handleSave }) {
+function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, isOpenPreloader, isOpenMoviesSpan, messageError }) {
   const [moviesView, setMoviesView] = React.useState([]);
   const [hidenButtonMoreMovies, setHidenButtonMoreMovies] = React.useState(false);
   const [quantityMovies, setQuantityMovies] = React.useState(null);
@@ -35,9 +36,6 @@ function Movies({ movies, myMovies, handleSubmit, handleSave }) {
     }
   }, [movies])
 
-
-
-
   function handleButtonMoreMovies() {
     if (document.documentElement.clientWidth >= 1280) {
       setQuantityMovies(quantityMovies + 3)
@@ -48,16 +46,17 @@ function Movies({ movies, myMovies, handleSubmit, handleSave }) {
 
   return (
     <div className="movies">
-      <Header movies="true"></Header>
+      <Header/>
 
-      <main>
-        <SearchForm onSubmit={handleSubmit}></SearchForm>
-        <Preloader></Preloader>
+      <main className="movies__main">
+        <SearchForm onSubmit={handleSubmit} handleChangeCheckBox={handleCheckBox}></SearchForm>
+        <Preloader isOpen={isOpenPreloader}></Preloader>
+        <MoviesSpan isOpen={isOpenMoviesSpan} message={messageError}/>
         <MoviesCardList movie='true' movies={moviesView} myMovies={myMovies}  handleSave={handleSave} ></MoviesCardList>
         <MoreMoves handleClick={handleButtonMoreMovies} visible={hidenButtonMoreMovies}></MoreMoves>
       </main>
 
-      <Footer></Footer>
+      <Footer/>
     </div>
   );
 }

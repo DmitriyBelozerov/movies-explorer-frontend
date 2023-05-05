@@ -38,6 +38,56 @@ class MainApi {
             .then(this._getJsonOrError)
     }
 
+    goOut() {
+        return fetch(`${this._baseUrl}/signout`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+        })
+            .then(this._getJsonOrError)
+    }
+
+    //регистрация   
+    registration(email, password, name) {
+        return fetch(`${this._baseUrl}/signup`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                password: password,
+                email: email,
+                name: name
+            }),
+        })
+            .then(this._getJsonOrError)
+    }
+
+    editProfile(email, name) {
+        return fetch(`${this._baseUrl}/users/me`, {
+            method: 'PATCH',
+            credentials: 'include',
+            headers: this._header,
+            body: JSON.stringify({
+                name: name,
+                email: email
+            }),
+        })
+            .then(this._getJsonOrError)
+    }
+
+    getСurrentUser() {
+        return fetch(`${this._baseUrl}/users/me`, {
+            credentials: 'include',
+            headers: this._header,
+        })
+            .then(this._getJsonOrError)
+    }
 
     getMyMovies() {
         return fetch(`${this._baseUrl}/movies`, {

@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 function Main() {
   return (
     <div className="main">
-      <Header main="true"></Header>
+      <Header />
       <main className='main-section'>
         <Promo></Promo>
         <AboutProject></AboutProject>
@@ -18,7 +18,7 @@ function Main() {
         <AboutMe></AboutMe>
         <Portfolio></Portfolio>
       </main>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

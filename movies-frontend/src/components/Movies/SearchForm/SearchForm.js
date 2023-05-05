@@ -3,10 +3,12 @@ import FilterCheckbox from './FilterCheckbox/FilterCheckbox';
 import './SearchForm.css';
 
 function SearchForm(props) {
-    const [valueSearch, setInputSearch] = React.useState('');
+    const [valueSearch, setInputSearch] = React.useState(getValueCheckBox());
     const [span, setSpan] = React.useState(false);
 
-
+    function getValueCheckBox() {
+        return localStorage.getItem('valueInput');
+      }
 
     function handleChangeInput(e) {
         setInputSearch(e.target.value);
@@ -16,6 +18,8 @@ function SearchForm(props) {
         e.preventDefault();
         props.onSubmit(valueSearch);
         !valueSearch ? setSpan(true) : setSpan(false);
+        localStorage.setItem('valueInput', valueSearch);
+
     }
 
 
@@ -26,7 +30,7 @@ function SearchForm(props) {
                     value={valueSearch || ''} onChange={handleChangeInput} />
                 <button className="searchForm__buttonSubmit" type="submit"></button>
             </form>
-            <FilterCheckbox></FilterCheckbox>
+            <FilterCheckbox handleChangeCheckBox={props.handleChangeCheckBox}></FilterCheckbox>
             <span className={`searchForm__error-message ${span && 'searchForm__error-message_visible'}`}>
                 Нужно ввести ключевое слово
             </span>

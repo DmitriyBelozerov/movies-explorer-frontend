@@ -17,7 +17,7 @@ function PopupWithForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.onSubmit(email, password);
+        props.onSubmit(email, password, props.name);
     }
 
     return (
@@ -35,6 +35,7 @@ function PopupWithForm(props) {
                         <h3 className='form__input-title'>Пароль</h3>
                         <input type='password' className='form__input' name='password' value={password || ''} onChange={handleChangePassword} required/>
                     </div>
+                    <span className='form__error-message'>{props.errMessage}</span>
                     <button className={`form__button ${props.button === "Войти" && "form__button_type_signin"}`} type="submit">
                         {props.button}
                     </button>

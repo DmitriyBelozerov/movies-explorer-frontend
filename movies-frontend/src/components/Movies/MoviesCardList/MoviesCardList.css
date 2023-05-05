@@ -12,7 +12,7 @@
 .moviesCardList__list {
     border-top: 1px solid #AAA;
 
-    width: max-content;
+    width: 100%;
     justify-content: center;
     display: flex;
     flex-direction: row;

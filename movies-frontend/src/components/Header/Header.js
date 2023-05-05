@@ -1,16 +1,20 @@
+import React from 'react';
 import './Header.css';
 import Navigation from '../Navigation/Navigation';
 import { Link } from 'react-router-dom';
+import { TranslationLogIn } from '../../contexts/Context';
 
 
 function Header(props) {
-    const headerClass = `header ${props.movies && 'header_type_movies'}`;
+    const loggedIn = React.useContext(TranslationLogIn);
+
+    const headerClass = `header ${loggedIn && 'header_type_movies'}`;
 
     return (
         <header className={headerClass}>
-            <Link  to='/' className="header__logo" />
-            <Navigation main={props.main} movies={props.movies} signIn="Войти"
-                signUp="Регистрация" account="Аккаунт" myFilms="Сохраненные фильмы"
+            <Link to='/' className="header__logo" />
+            <Navigation signIn="Войти" signUp="Регистрация"
+                account="Аккаунт" myFilms="Сохраненные фильмы"
                 films="Фильмы">
             </Navigation>
         </header>
