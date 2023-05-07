@@ -80,6 +80,7 @@ function App() {
     mainApi.goOut()
       .then((data) => {
         setLoggedIn(false);
+        localStorage.clear();
         navigate('/');
       })
       .catch(err => console.log(err))
