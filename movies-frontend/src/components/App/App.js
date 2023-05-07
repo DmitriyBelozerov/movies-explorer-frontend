@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import './App.css';
@@ -31,12 +31,13 @@ function App() {
   const [isOpenMoviesSpan, setIsOpenMoviesSpan] = React.useState(false);
   const [messageError, setMessageError] = React.useState('');
   const [message, setMessage] = React.useState('');
+  const navigate = useNavigate();
 
   function getValueCheckBox() {
     return localStorage.getItem('valueCheckBox') === 'true' ? true : false
   }
 
-  const navigate = useNavigate();
+  console.log(loggedIn);
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -66,6 +67,15 @@ function App() {
       return
     }
   }, [loggedIn])
+
+  React.useEffect(() => {
+    mainApi.getСurrentUser()
+      .then(() => {
+        navigate('/');
+        setLoggedIn(true);
+      })
+      .catch(err => console.log(err))
+  }, [])
 
   function handleLogIn(email, password) {
     mainApi.logIn(email, password)
