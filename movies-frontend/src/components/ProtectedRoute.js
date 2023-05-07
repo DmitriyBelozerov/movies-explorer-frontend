@@ -4,7 +4,7 @@ import { TranslationLogIn } from "../contexts/Context";
 
 const ProtectedRoute = ({ Component }) => {
     const loggedIn = React.useContext(TranslationLogIn);
-    return loggedIn ? Component : <Navigate to="/signin" />;
+    return loggedIn ? Component : <Navigate to="/" />;
 };
 
 export default ProtectedRoute; 
