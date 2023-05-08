@@ -121,20 +121,18 @@ function App() {
     if (valueSearch === '') {
       return
     } else if (valueCheckBox) {
-
-      const arrMovies = movies.filter(item =>
-        item.nameRU.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
-      );
+      const arrMovies = movies.filter(item => {
+        const movieNameRu = item.nameRU.toLowerCase();
+        return movieNameRu.includes(valueSearch.toLowerCase()) && item.duration < CRITERION_SHORT_FILM
+      });
       setSelectedMovies(arrMovies)
       localStorage.setItem('moviesView', JSON.stringify(arrMovies));
       !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
     } else {
-
-      const arrMovies = movies.filter((item) => {
-        const movieName = item.nameRU.toLowerCase();
-        return movieName.includes(valueSearch.toLowerCase())
-      }
-      );
+      const arrMovies = movies.filter(item => {
+        const movieNameRu = item.nameRU.toLowerCase();
+        return movieNameRu.includes(valueSearch.toLowerCase())
+      });
       setSelectedMovies(arrMovies);
       localStorage.setItem('moviesView', JSON.stringify(arrMovies));
       !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
@@ -147,15 +145,17 @@ function App() {
     if (valueSearch === '') {
       setSelectedMyMovies(myMovies)
     } else if (valueCheckBox) {
-      const arrMovies = myMovies.filter(item =>
-        item.nameRU.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
-      )
+      const arrMovies = myMovies.filter(item => {
+        const movieNameRu = item.nameRU.toLowerCase();
+        return movieNameRu.includes(valueSearch.toLowerCase()) && item.duration < CRITERION_SHORT_FILM
+      })
       setSelectedMyMovies(arrMovies)
       !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
     } else {
-      const arrMovies = myMovies.filter(item =>
-        item.nameRU.includes(valueSearch)
-      )
+      const arrMovies = myMovies.filter(item => {
+        const movieNameRu = item.nameRU.toLowerCase();
+        return movieNameRu.includes(valueSearch.toLowerCase())
+      })
       setSelectedMyMovies(arrMovies)
       !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
     }
