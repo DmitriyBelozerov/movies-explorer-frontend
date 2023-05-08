@@ -37,8 +37,6 @@ function App() {
     return localStorage.getItem('valueCheckBox') === 'true' ? true : false
   }
 
-  console.log(loggedIn);
-
   React.useEffect(() => {
     if (loggedIn) {
       moviesApi.getMovies()
@@ -123,15 +121,19 @@ function App() {
     if (valueSearch === '') {
       return
     } else if (valueCheckBox) {
+
       const arrMovies = movies.filter(item =>
-        item.description.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
+        item.nameRU.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
       );
       setSelectedMovies(arrMovies)
       localStorage.setItem('moviesView', JSON.stringify(arrMovies));
       !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
     } else {
-      const arrMovies = movies.filter(item =>
-        item.description.includes(valueSearch)
+
+      const arrMovies = movies.filter((item) => {
+        const movieName = item.nameRU.toLowerCase();
+        return movieName.includes(valueSearch.toLowerCase())
+      }
       );
       setSelectedMovies(arrMovies);
       localStorage.setItem('moviesView', JSON.stringify(arrMovies));
@@ -146,13 +148,13 @@ function App() {
       setSelectedMyMovies(myMovies)
     } else if (valueCheckBox) {
       const arrMovies = myMovies.filter(item =>
-        item.description.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
+        item.nameRU.includes(valueSearch) && item.duration < CRITERION_SHORT_FILM
       )
       setSelectedMyMovies(arrMovies)
       !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
     } else {
       const arrMovies = myMovies.filter(item =>
-        item.description.includes(valueSearch)
+        item.nameRU.includes(valueSearch)
       )
       setSelectedMyMovies(arrMovies)
       !arrMovies.length ? setIsOpenMoviesSpan(true) : setIsOpenMoviesSpan(false)
