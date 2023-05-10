@@ -7,21 +7,34 @@ import Preloader from './Preloader/Preloader';
 import MoreMoves from './MoreMoves/MoreMoves';
 import Footer from '../Footer/Footer';
 import MoviesSpan from '../MoviesSpan/MoviesSpan';
-import { RESOLUTION_LARGE, RESOLUTION_AVERAGE, RESOLUTION_LARGE_MOVIES, RESOLUTION_AVERAGE_MOVIES,
-RESOLUTION_SMALL_MOVIES, RESOLUTION_LARGE_ADD_MOVIES, RESOLUTION_SMALL_ADD_MOVIES } from '../../constants/constants';
+import {
+  RESOLUTION_LARGE, RESOLUTION_AVERAGE, RESOLUTION_LARGE_MOVIES, RESOLUTION_AVERAGE_MOVIES,
+  RESOLUTION_SMALL_MOVIES, RESOLUTION_LARGE_ADD_MOVIES, RESOLUTION_SMALL_ADD_MOVIES
+} from '../../constants/constants';
 
 function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, isOpenPreloader, isOpenMoviesSpan, messageError, valueCheckBox }) {
-  const [moviesView, setMoviesView] = React.useState(getMoviesView());
+  const [moviesView, setMoviesView] = React.useState([]);
   const [hidenButtonMoreMovies, setHidenButtonMoreMovies] = React.useState(false);
-  const [quantityMovies, setQuantityMovies] = React.useState(null);
+  const [quantityMovies, setQuantityMovies] = React.useState(0);
 
   function getMoviesView() {
-    return JSON.parse(localStorage.getItem('moviesView')) || [];
+    return JSON.parse(localStorage.getItem('moviesView'));
   }
 
+  console.log();
+
   React.useEffect(() => {
-    setMoviesView(movies.filter((item, index) => { return index < quantityMovies }));
+    movies &&
+      setMoviesView(movies.filter((item, index) => { return index < quantityMovies }));
   }, [movies, quantityMovies])
+
+  React.useEffect(() => {
+    if (getMoviesView() === null) {
+      return
+    }
+    setMoviesView(getMoviesView());
+  }, [])
+
 
   React.useEffect(() => {
     if (moviesView.length === 0 || quantityMovies >= movies.length) {
@@ -51,17 +64,17 @@ function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, is
 
   return (
     <div className="movies">
-      <Header/>
+      <Header />
 
       <main className="movies__main">
         <SearchForm onSubmit={handleSubmit} handleChangeCheckBox={handleCheckBox} valueCheckBox={valueCheckBox}></SearchForm>
         <Preloader isOpen={isOpenPreloader}></Preloader>
-        <MoviesSpan isOpen={isOpenMoviesSpan} message={messageError}/>
-        <MoviesCardList movie='true' movies={moviesView} myMovies={myMovies}  handleSave={handleSave} ></MoviesCardList>
+        <MoviesSpan isOpen={isOpenMoviesSpan} message={messageError} />
+        <MoviesCardList movie='true' movies={moviesView} myMovies={myMovies} handleSave={handleSave} ></MoviesCardList>
         <MoreMoves handleClick={handleButtonMoreMovies} visible={hidenButtonMoreMovies}></MoreMoves>
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }

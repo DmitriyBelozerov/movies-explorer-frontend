@@ -23,7 +23,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [movies, setMovies] = React.useState([]);
   const [myMovies, setMyMovies] = React.useState([]);
-  const [selectedMovies, setSelectedMovies] = React.useState([]);
+  const [selectedMovies, setSelectedMovies] = React.useState(JSON.parse(localStorage.getItem('moviesView')));
   const [selectedMyMovies, setSelectedMyMovies] = React.useState([]);
   const [errMessage, setErrMessage] = React.useState('');
   const [valueCheckBox, setValueCheckBox] = React.useState(getValueCheckBox());
@@ -65,6 +65,7 @@ function App() {
       return
     }
   }, [loggedIn])
+  
 
   React.useEffect(() => {
     mainApi.getСurrentUser()
@@ -197,7 +198,7 @@ function App() {
             <Route path="/" element={<Main />} />
 
             <Route path="/movies" element={
-              <ProtectedRoute Component={<Movies movies={selectedMovies} myMovies={myMovies} handleSubmit={searchMovies}
+              <ProtectedRoute Component={<Movies movies={selectedMovies || []} myMovies={myMovies || []} handleSubmit={searchMovies}
                 handleSave={handleMovieSave} handleCheckBox={handleChangeCheckBox} isOpenPreloader={isOpenPreloader}
                 isOpenMoviesSpan={isOpenMoviesSpan} messageError={messageError} valueCheckBox={valueCheckBox} />} />
             } />
