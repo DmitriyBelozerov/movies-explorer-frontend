@@ -7,6 +7,8 @@ import Preloader from './Preloader/Preloader';
 import MoreMoves from './MoreMoves/MoreMoves';
 import Footer from '../Footer/Footer';
 import MoviesSpan from '../MoviesSpan/MoviesSpan';
+import { RESOLUTION_LARGE, RESOLUTION_AVERAGE, RESOLUTION_LARGE_MOVIES, RESOLUTION_AVERAGE_MOVIES,
+RESOLUTION_SMALL_MOVIES, RESOLUTION_LARGE_ADD_MOVIES, RESOLUTION_SMALL_ADD_MOVIES } from '../../constants/constants';
 
 function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, isOpenPreloader, isOpenMoviesSpan, messageError, valueCheckBox }) {
   const [moviesView, setMoviesView] = React.useState(getMoviesView());
@@ -30,20 +32,20 @@ function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, is
   }, [moviesView, quantityMovies, movies])
 
   React.useEffect(() => {
-    if (document.documentElement.clientWidth >= 1280) {
-      setQuantityMovies(12)
-    } else if (document.documentElement.clientWidth >= 768 && document.documentElement.clientWidth < 1280) {
-      setQuantityMovies(8)
+    if (document.documentElement.clientWidth >= RESOLUTION_LARGE) {
+      setQuantityMovies(RESOLUTION_LARGE_MOVIES)
+    } else if (document.documentElement.clientWidth >= RESOLUTION_AVERAGE && document.documentElement.clientWidth < RESOLUTION_LARGE) {
+      setQuantityMovies(RESOLUTION_AVERAGE_MOVIES)
     } else {
-      setQuantityMovies(5)
+      setQuantityMovies(RESOLUTION_SMALL_MOVIES)
     }
   }, [movies])
 
   function handleButtonMoreMovies() {
-    if (document.documentElement.clientWidth >= 1280) {
-      setQuantityMovies(quantityMovies + 3)
+    if (document.documentElement.clientWidth >= RESOLUTION_LARGE) {
+      setQuantityMovies(quantityMovies + RESOLUTION_LARGE_ADD_MOVIES)
     } else {
-      setQuantityMovies(quantityMovies + 2)
+      setQuantityMovies(quantityMovies + RESOLUTION_SMALL_ADD_MOVIES)
     }
   }
 

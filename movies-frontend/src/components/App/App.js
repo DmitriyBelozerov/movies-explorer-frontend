@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import './App.css';
@@ -16,7 +16,7 @@ import { TranslationLogIn, TranslationCurrentUser } from '../../contexts/Context
 import mainApi from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
 
-import { ERROR_SERVER_MESSAGE, CRITERION_SHORT_FILM } from '../../constants/constants';
+import { ERROR_SERVER_MESSAGE, CRITERION_SHORT_FILM, MESSAGE_PROFILE_UPDATE_OK } from '../../constants/constants';
 
 function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
@@ -109,7 +109,7 @@ function App() {
     mainApi.editProfile(email, name)
       .then((data) => {
         setCurrentUser(data.data);
-        setMessage('Данные профиля успешно обновлены')
+        setMessage(MESSAGE_PROFILE_UPDATE_OK)
       })
       .catch((err) => {
         setErrMessage(err.message);

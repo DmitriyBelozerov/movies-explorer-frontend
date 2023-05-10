@@ -1,6 +1,8 @@
+import {MAIN_API, ERROR_SERVER_API, IMG_URL } from "../constants/constants";
+
 const apiOptions = {
-    // baseUrl: "http://localhost:3001",
-    baseUrl: "https://api.belozerov.nomoredomains.monster",
+    baseUrl: MAIN_API,
+    imgUrl: IMG_URL,
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -13,13 +15,14 @@ class MainApi {
     constructor(config) {
         this._header = config.headers;
         this._baseUrl = config.baseUrl;
+        this._imgUrk = config.imgUrl;
     }
 
     _getJsonOrError(res) {
         if (res.ok) {
             return res.json();
         }
-        throw new Error('Ошибка при загрузке данных с сервера')
+        throw new Error(ERROR_SERVER_API)
     }
 
     logIn(emailIn, passwordIn) {
@@ -110,9 +113,9 @@ class MainApi {
                 duration: `${duration}`,
                 year: `${year}`,
                 description: `${description}`,
-                image: `https://api.nomoreparties.co/${image.url}`,
+                image: `${this._imgUrk}${image.url}`,
                 trailerLink: `${trailerLink}`,
-                thumbnail: `https://api.nomoreparties.co/${image.formats.thumbnail.url}`,
+                thumbnail: `${this._imgUrk}${image.formats.thumbnail.url}`,
                 movieId: `${id}`,
                 nameRU: `${nameRU}`,
                 nameEN: `${nameEN}`
