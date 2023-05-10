@@ -66,7 +66,6 @@ function App() {
     }
   }, [loggedIn])
 
-
   React.useEffect(() => {
     mainApi.getСurrentUser()
       .then(() => {
@@ -110,12 +109,12 @@ function App() {
     mainApi.editProfile(email, name)
       .then((data) => {
         setCurrentUser(data.data);
-        setMessage(MESSAGE_PROFILE_UPDATE_OK)
+        setMessage(MESSAGE_PROFILE_UPDATE_OK);
       })
       .catch((err) => {
         setErrMessage(err.message);
         setMessage('')
-      })
+      });
   }
 
   function searchMovies(valueSearch) {
@@ -176,23 +175,23 @@ function App() {
   }
 
   function handleDeleteFromSaved(movie) {
-    if (movie._id) {
-      mainApi.deleteSavedMovie(movie._id)
-        .then(() => {
-          setMyMovies(myMovies.filter(item => item._id !== movie._id));
-        })
-        .catch(err => console.log(err))
-    } else {
-      myMovies.forEach(item => {
-        if (item.movieId === movie.id) {
-          mainApi.deleteSavedMovie(item._id)
-            .then(() => {
-              setMyMovies(myMovies.filter(i => i._id !== item._id));
-            })
-            .catch(err => console.log(err))
-        }
-      });
-    }
+    mainApi.deleteSavedMovie(movie._id)
+      .then(() => {
+        setMyMovies(myMovies.filter(item => item._id !== movie._id));
+      })
+      .catch(err => console.log(err))
+  }
+
+  function handleDeleteFromMomies(movie) {
+    myMovies.forEach(item => {
+      if (item.movieId === movie.id) {
+        mainApi.deleteSavedMovie(item._id)
+          .then(() => {
+            setMyMovies(myMovies.filter(i => i._id !== item._id));
+          })
+          .catch(err => console.log(err))
+      }
+    });
   }
 
   function handleChangeCheckBox() {
@@ -211,7 +210,7 @@ function App() {
 
             <Route path="/movies" element={
               <ProtectedRoute Component={<Movies movies={selectedMovies || []} myMovies={myMovies || []} handleSubmit={searchMovies}
-                handleSave={handleMovieSave} handleCheckBox={handleChangeCheckBox} handleDelete={handleDeleteFromSaved}
+                handleSave={handleMovieSave} handleCheckBox={handleChangeCheckBox} handleDelete={handleDeleteFromMomies}
                 isOpenPreloader={isOpenPreloader} isOpenMoviesSpan={isOpenMoviesSpan} messageError={messageError}
                 valueCheckBox={valueCheckBox} />} />
             } />

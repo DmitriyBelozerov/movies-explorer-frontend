@@ -9,8 +9,6 @@ function Profile(props) {
     const currentUser = React.useContext(TranslationCurrentUser);
     const [email, setEmail] = React.useState(currentUser.email);
     const [name, setName] = React.useState(currentUser.name);
-    // const [nameDirty, setNameDirty] = useState(false);
-    // const [emailDirty, setEmailDirty] = useState(false);
     const [nameError, setNameError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [formValid, setFormValid] = useState(false)
@@ -47,19 +45,6 @@ function Profile(props) {
         }
     }
 
-    // const blurHandler = (e) => {
-    //     switch (e.target.name) {
-    //         case 'email':
-    //             setEmailDirty(true)
-    //             break;
-    //         case 'name':
-    //             setNameDirty(true)
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
-
     function handleGoOut() {
         props.onGoOut();
     }
@@ -81,27 +66,22 @@ function Profile(props) {
                         <h3 className="profile__title-input">Имя</h3>
                         <input id="name" className="profile__input" type="text" name="inputName"
                             placeholder={`${currentUser.name}`} minLength="2" maxLength="40"
-                            value={name || ``} onChange={handleChangeName}
-                            //  onBlur={blurHandler}
-                            required />
-
+                            value={name || ``} onChange={handleChangeName} required />
                     </div>
                     {(nameError) && <span className='form__error-message'>{nameError}</span>}
 
                     <div className="profile__block-input  profile__block-input_type_end">
                         <h3 className="profile__title-input">E-mail</h3>
                         <input id="email" className="profile__input" type="email" name="inputEmail"
-                            placeholder="E-mail" minLength="2" maxLength="40"
-                            value={email || ``} onChange={handleChangeEmail}
-                            //  onBlur={blurHandler}
-                            required />
-
+                            placeholder="E-mail" minLength="2" maxLength="40" value={email || ``}
+                            onChange={handleChangeEmail} required />
                     </div>
                     {(emailError) && <span className='form__error-message'>{emailError}</span>}
 
                     <span className="profile__message">{props.message}</span>
 
-                    <button className={`profile__button-save ${!validForm && 'profile__button-save_visible_none'}`} type="submit" disabled={!validForm}>
+                    <button className={`profile__button-save ${!validForm && 'profile__button-save_visible_none'}`}
+                        type="submit" disabled={!validForm}>
                         Редактировать
                     </button>
                 </form>

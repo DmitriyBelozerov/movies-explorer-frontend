@@ -1,7 +1,10 @@
 import React from 'react';
 import './MoviesCard.css';
+import { TranslationCurrentUser } from '../../../contexts/Context';
 
 function MoviesCard(props) {
+    const currentUser = React.useContext(TranslationCurrentUser);
+
     const [duration, setDuration] = React.useState('');
     const baseUrl = 'https://api.nomoreparties.co/';
     const imageUrl = props.movieType ? `${baseUrl}${props.image}` : `${props.data.image}`;
@@ -12,7 +15,7 @@ function MoviesCard(props) {
         "moviesCard__add-to-saved" :
         "moviesCard__add-to-saved_display_none";
     const moviesCardCheck = props.movieType &&
-        props.myMovies.some(i => { return i.movieId === props.data.id }) ?
+        props.myMovies.some(i => { return (i.movieId === props.data.id &&  (i.owner._id === currentUser._id || i.owner === currentUser._id))}) ?
         "moviesCard__check" :
         "moviesCard__add-to-saved_display_none";
 
