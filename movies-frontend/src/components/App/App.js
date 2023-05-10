@@ -65,7 +65,7 @@ function App() {
       return
     }
   }, [loggedIn])
-  
+
 
   React.useEffect(() => {
     mainApi.getСurrentUser()
@@ -176,11 +176,23 @@ function App() {
   }
 
   function handleDeleteFromSaved(movie) {
-    mainApi.deleteSavedMovie(movie._id)
-      .then((data) => {
-        setMyMovies(myMovies.filter(item => item._id !== movie._id));
-      })
-      .catch(err => console.log(err))
+    if (movie._id) {
+      mainApi.deleteSavedMovie(movie._id)
+        .then(() => {
+          setMyMovies(myMovies.filter(item => item._id !== movie._id));
+        })
+        .catch(err => console.log(err))
+    } else {
+      myMovies.forEach(item => {
+        if (item.movieId === movie.id) {
+          mainApi.deleteSavedMovie(item._id)
+            .then(() => {
+              setMyMovies(myMovies.filter(i => i._id !== item._id));
+            })
+            .catch(err => console.log(err))
+        }
+      });
+    }
   }
 
   function handleChangeCheckBox() {
@@ -199,8 +211,9 @@ function App() {
 
             <Route path="/movies" element={
               <ProtectedRoute Component={<Movies movies={selectedMovies || []} myMovies={myMovies || []} handleSubmit={searchMovies}
-                handleSave={handleMovieSave} handleCheckBox={handleChangeCheckBox} isOpenPreloader={isOpenPreloader}
-                isOpenMoviesSpan={isOpenMoviesSpan} messageError={messageError} valueCheckBox={valueCheckBox} />} />
+                handleSave={handleMovieSave} handleCheckBox={handleChangeCheckBox} handleDelete={handleDeleteFromSaved}
+                isOpenPreloader={isOpenPreloader} isOpenMoviesSpan={isOpenMoviesSpan} messageError={messageError}
+                valueCheckBox={valueCheckBox} />} />
             } />
 
             <Route path="/saved-movies" element={

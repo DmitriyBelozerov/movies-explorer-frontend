@@ -12,7 +12,8 @@ import {
   RESOLUTION_SMALL_MOVIES, RESOLUTION_LARGE_ADD_MOVIES, RESOLUTION_SMALL_ADD_MOVIES
 } from '../../constants/constants';
 
-function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, isOpenPreloader, isOpenMoviesSpan, messageError, valueCheckBox }) {
+function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, isOpenPreloader,
+   isOpenMoviesSpan, messageError, valueCheckBox, handleDelete }) {
   const [moviesView, setMoviesView] = React.useState([]);
   const [hidenButtonMoreMovies, setHidenButtonMoreMovies] = React.useState(false);
   const [quantityMovies, setQuantityMovies] = React.useState(0);
@@ -70,7 +71,7 @@ function Movies({ movies, myMovies, handleSubmit, handleSave, handleCheckBox, is
         <SearchForm onSubmit={handleSubmit} handleChangeCheckBox={handleCheckBox} valueCheckBox={valueCheckBox}></SearchForm>
         <Preloader isOpen={isOpenPreloader}></Preloader>
         <MoviesSpan isOpen={isOpenMoviesSpan} message={messageError} />
-        <MoviesCardList movie='true' movies={moviesView} myMovies={myMovies} handleSave={handleSave} ></MoviesCardList>
+        <MoviesCardList movie='true' movies={moviesView} myMovies={myMovies} handleSave={handleSave} handleDelete={handleDelete} ></MoviesCardList>
         <MoreMoves handleClick={handleButtonMoreMovies} visible={hidenButtonMoreMovies}></MoreMoves>
       </main>
 

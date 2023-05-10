@@ -38,7 +38,7 @@ function MoviesCard(props) {
             <h2 className="moviesCard__title">{props.title}</h2>
             <article className="moviesCard__time">{duration}</article>
             <button className={moviesCardAddSavedButton} type="button" aria-label="saved" onClick={handleSave}>Сохранить</button>
-            <div className={moviesCardCheck}></div>
+            <div className={moviesCardCheck} onClick={handleDeleteClick} ></div>
 
             <button className={moviesCardDeleteButton} type="button" aria-label="delete" onClick={handleDeleteClick}></button>
         </li>
