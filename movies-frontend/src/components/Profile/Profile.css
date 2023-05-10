@@ -82,6 +82,10 @@
     margin-top: auto;
 }
 
+.profile__button-save_visible_none {
+    opacity: 0;
+}
+
 .profile__button-save:hover {
     opacity: 0.6;
 }
