@@ -7,6 +7,9 @@ function SearchForm(props) {
     const [span, setSpan] = React.useState(false);
 
     function getValueCheckBox() {
+        if (props.type) {
+            return '';
+        }
         return localStorage.getItem('valueInput');
     }
 

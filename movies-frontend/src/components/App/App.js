@@ -218,7 +218,7 @@ function App() {
             <Route path="/saved-movies" element={
               <ProtectedRoute Component={<SavedMovies myMovies={myMovies} selectedMovies={selectedMyMovies}
                 handleSubmit={searchMyMovies} handleCheckBox={handleChangeCheckBox} isOpenMoviesSpan={isOpenMoviesSpan}
-                handleDelete={handleDeleteFromSaved} valueCheckBox={valueCheckBox} />} />
+                handleDelete={handleDeleteFromSaved} />} />
             } />
             <Route path="/profile" element={
               <ProtectedRoute Component={<Profile onGoOut={handleExit} onSubmit={handleEditProfile} message={message} />} />
