@@ -19,7 +19,7 @@ import moviesApi from '../../utils/MoviesApi';
 import { ERROR_SERVER_MESSAGE, CRITERION_SHORT_FILM, MESSAGE_PROFILE_UPDATE_OK } from '../../constants/constants';
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(sessionStorage.getItem('loggedIn'));
   const [currentUser, setCurrentUser] = React.useState({});
   const [movies, setMovies] = React.useState([]);
   const [myMovies, setMyMovies] = React.useState([]);
@@ -69,16 +69,21 @@ function App() {
   React.useEffect(() => {
     mainApi.getСurrentUser()
       .then(() => {
-        navigate('/');
         setLoggedIn(true);
+        sessionStorage.setItem('loggedIn', true);
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err);
+        setLoggedIn(false);
+      })
   }, [])
+
 
   function handleLogIn(email, password) {
     mainApi.logIn(email, password)
       .then((data) => {
         setLoggedIn(true);
+        sessionStorage.setItem('loggedIn', true);
         navigate('/movies');
       })
       .catch(err => console.log(err))
@@ -88,8 +93,11 @@ function App() {
     mainApi.goOut()
       .then((data) => {
         setLoggedIn(false);
+        sessionStorage.clear();
         localStorage.clear();
         navigate('/');
+        setSelectedMovies([]);
+        setValueCheckBox(false);
       })
       .catch(err => console.log(err))
   }
@@ -204,8 +212,9 @@ function App() {
       <TranslationCurrentUser.Provider value={currentUser}>
         <div className="app">
           <Routes>
-            <Route path="/signup" element={<Register errMessage={errMessage} onSubmit={handleRegistrations} />} />
-            <Route path="/signin" element={<Login onSubmit={handleLogIn} />} />
+            {!loggedIn && <Route path="/signup" element={<Register errMessage={errMessage} onSubmit={handleRegistrations} />} />}
+            {!loggedIn && <Route path="/signin" element={<Login onSubmit={handleLogIn} />} />}
+
             <Route path="/" element={<Main />} />
 
             <Route path="/movies" element={
