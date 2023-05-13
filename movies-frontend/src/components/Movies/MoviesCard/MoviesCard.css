@@ -1,0 +1,153 @@
+.moviesCard {
+    width: 360px;
+    position: relative;
+    display: grid;
+    grid-template-areas:
+        "A A"
+        "B C";
+}
+
+.moviesCard__link-to-treiler {
+    display: block;
+    grid-area: A;
+}
+
+.moviesCard__title {
+    margin: 0 0 0 14px;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+}
+
+@media (max-width: 770px) {
+    .moviesCard {
+        width: 339px;
+    }
+
+    .moviesCard__photo {
+        width: 339px;
+    }
+}
+
+@media (max-width: 360px) {
+    .moviesCard {
+        width: 300px;
+    }
+
+    .moviesCard__photo {
+        width: 300px;
+    }
+    .moviesCard__title {
+        font-size: 12px;
+        margin: 0;
+    }
+}
+
+.moviesCard__photo {
+    width: 360px;
+    max-height: 201px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+
+}
+
+
+
+.moviesCard__time {
+    display: flex;
+    height: 18px;
+    width: 52px;
+    margin-right: 14px;
+    background: #2F2F2F;
+    color: #8B8B8B;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 400;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+}
+
+.moviesCard__add-to-saved {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    color: #FFF;
+    background-color: #313131;
+    border: none;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 400;
+    height: 21px;
+    width: 72px;
+    cursor: pointer;
+    display: none;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
+}
+
+.moviesCard__add-to-saved_display_none {
+    display: none;
+}
+
+.moviesCard__delete {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    height: 21px;
+    width: 21px;
+    border: none;
+    background: #313131;
+    background-image: url(../../../images/delite.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
+}
+
+.moviesCard__delete_display_none {
+    display: none;
+}
+
+.moviesCard__check {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    height: 21px;
+    width: 21px;
+    border: none;
+    border-radius: 50%;
+    background-color: #EE3465;
+    background-image: url(../../../images/checkFilm.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
+}
+
+.moviesCard__check:hover {
+    opacity: 0.8;
+}
+
+.moviesCard__add-to-saved:hover {
+    display: block;
+    opacity: 0.8;
+}
+
+.moviesCard__delete:hover {
+    display: block;
+    opacity: 0.8;
+}
+
+.moviesCard__link-to-treiler:hover~.moviesCard__add-to-saved {
+    display: block;
+}
+
+.moviesCard__link-to-treiler:hover~.moviesCard__delete {
+    display: block;
+}

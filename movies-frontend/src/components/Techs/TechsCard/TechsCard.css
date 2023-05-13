@@ -1,0 +1,31 @@
+.techsCard {
+    margin: 5px;
+    background: #303030;
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.techsCard__title {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+}
+
+@media (max-width: 800px) {
+    .techsCard {
+        width: 84px;
+        height: 57px;
+
+    }
+
+    .techsCard_title {
+        font-size: 12px;
+    }
+}
