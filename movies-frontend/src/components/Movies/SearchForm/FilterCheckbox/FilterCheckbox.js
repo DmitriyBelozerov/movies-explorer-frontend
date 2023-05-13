@@ -2,13 +2,10 @@ import React from 'react';
 import './FilterCheckbox.css';
 
 function FilterCheckbox(props) {
-  
+
   function handleChange() {
     props.handleChangeCheckBox(props.type)
-    
   }
-
-  console.log(props.valueCheckBox);
 
   return (
     <div className="filterCheckbox">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import './App.css';
@@ -28,7 +28,7 @@ function App() {
   const [errMessage, setErrMessage] = React.useState('');
   const [valueCheckBox, setValueCheckBox] = React.useState(getValueCheckBox());
   const [valueCheckBoxMyMovie, setValueCheckBoxMyMovie] = React.useState(false);
-  
+
   const [isOpenPreloader, setIsOpenPreloader] = React.useState(false);
   const [isOpenMoviesSpan, setIsOpenMoviesSpan] = React.useState(false);
   const [messageError, setMessageError] = React.useState('');
@@ -127,6 +127,10 @@ function App() {
       });
   }
 
+  useEffect(() => {
+    setMessage('');
+  }, [navigate])
+
   function searchMovies(valueSearch) {
     if (valueSearch === '') {
       return
@@ -213,9 +217,6 @@ function App() {
     }
   }
 
-  console.log(localStorage.getItem('valueCheckBox'));
-  console.log(localStorage.getItem('valueInput'));
-
   return (
     <TranslationLogIn.Provider value={loggedIn}>
       <TranslationCurrentUser.Provider value={currentUser}>
@@ -236,7 +237,7 @@ function App() {
             <Route path="/saved-movies" element={
               <ProtectedRoute Component={<SavedMovies myMovies={myMovies} selectedMovies={selectedMyMovies}
                 handleSubmit={searchMyMovies} handleCheckBox={handleChangeCheckBox} isOpenMoviesSpan={isOpenMoviesSpan}
-                handleDelete={handleDeleteFromSaved} valueCheckBox={valueCheckBoxMyMovie}/>} />
+                handleDelete={handleDeleteFromSaved} valueCheckBox={valueCheckBoxMyMovie} />} />
             } />
             <Route path="/profile" element={
               <ProtectedRoute Component={<Profile onGoOut={handleExit} onSubmit={handleEditProfile} message={message} />} />
