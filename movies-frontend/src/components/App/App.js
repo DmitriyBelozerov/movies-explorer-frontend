@@ -27,6 +27,8 @@ function App() {
   const [selectedMyMovies, setSelectedMyMovies] = React.useState([]);
   const [errMessage, setErrMessage] = React.useState('');
   const [valueCheckBox, setValueCheckBox] = React.useState(getValueCheckBox());
+  const [valueCheckBoxMyMovie, setValueCheckBoxMyMovie] = React.useState(false);
+  
   const [isOpenPreloader, setIsOpenPreloader] = React.useState(false);
   const [isOpenMoviesSpan, setIsOpenMoviesSpan] = React.useState(false);
   const [messageError, setMessageError] = React.useState('');
@@ -152,7 +154,7 @@ function App() {
   function searchMyMovies(valueSearch) {
     if (valueSearch === '') {
       setSelectedMyMovies(myMovies)
-    } else if (valueCheckBox) {
+    } else if (valueCheckBoxMyMovie) {
       const arrMovies = myMovies.filter(item => {
         const movieNameRu = item.nameRU.toLowerCase();
         return movieNameRu.includes(valueSearch.toLowerCase()) && item.duration < CRITERION_SHORT_FILM
@@ -202,10 +204,17 @@ function App() {
     });
   }
 
-  function handleChangeCheckBox() {
-    setValueCheckBox(!valueCheckBox);
-    localStorage.setItem('valueCheckBox', !valueCheckBox);
+  function handleChangeCheckBox(type) {
+    if (!type) {
+      localStorage.setItem('valueCheckBox', !valueCheckBox);
+      setValueCheckBox(!valueCheckBox);
+    } else {
+      setValueCheckBoxMyMovie(!valueCheckBoxMyMovie);
+    }
   }
+
+  console.log(localStorage.getItem('valueCheckBox'));
+  console.log(localStorage.getItem('valueInput'));
 
   return (
     <TranslationLogIn.Provider value={loggedIn}>
@@ -227,7 +236,7 @@ function App() {
             <Route path="/saved-movies" element={
               <ProtectedRoute Component={<SavedMovies myMovies={myMovies} selectedMovies={selectedMyMovies}
                 handleSubmit={searchMyMovies} handleCheckBox={handleChangeCheckBox} isOpenMoviesSpan={isOpenMoviesSpan}
-                handleDelete={handleDeleteFromSaved} />} />
+                handleDelete={handleDeleteFromSaved} valueCheckBox={valueCheckBoxMyMovie}/>} />
             } />
             <Route path="/profile" element={
               <ProtectedRoute Component={<Profile onGoOut={handleExit} onSubmit={handleEditProfile} message={message} />} />

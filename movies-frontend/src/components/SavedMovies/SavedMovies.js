@@ -12,7 +12,7 @@ function SavedMovies(props) {
             <Header movies="true"></Header>
 
             <main>
-                <SearchForm onSubmit={props.handleSubmit} handleChangeCheckBox={props.handleCheckBox} 
+                <SearchForm onSubmit={props.handleSubmit} handleChangeCheckBox={props.handleCheckBox} valueCheckBox={props.valueCheckBox}
                     type='myMovies' />
                 <MoviesSpan isOpen={props.isOpenMoviesSpan} message={props.messageError} />
                 <MoviesCardList movies={props.selectedMovies.length ? props.selectedMovies : props.myMovies} selectedMovies={props.selectedMovies}

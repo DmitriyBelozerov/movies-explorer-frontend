@@ -21,8 +21,9 @@ function SearchForm(props) {
         e.preventDefault();
         props.onSubmit(valueSearch);
         !valueSearch ? setSpan(true) : setSpan(false);
-        localStorage.setItem('valueInput', valueSearch);
-
+        if (!props.type) {
+            localStorage.setItem('valueInput', valueSearch);
+        }
     }
 
     return (
@@ -32,7 +33,7 @@ function SearchForm(props) {
                     value={valueSearch || ''} onChange={handleChangeInput} />
                 <button className="searchForm__buttonSubmit" type="submit"></button>
             </form>
-            <FilterCheckbox handleChangeCheckBox={props.handleChangeCheckBox} valueCheckBox={props.valueCheckBox}></FilterCheckbox>
+            <FilterCheckbox handleChangeCheckBox={props.handleChangeCheckBox} valueCheckBox={props.valueCheckBox} type={props.type}></FilterCheckbox>
             <span className={`searchForm__error-message ${span && 'searchForm__error-message_visible'}`}>
                 Нужно ввести ключевое слово
             </span>
