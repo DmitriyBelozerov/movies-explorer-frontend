@@ -68,6 +68,10 @@
     text-decoration: none;
 }
 
+.navigation__films_active {
+    color: #3DDC84;
+}
+
 .navigation__films:hover {
     opacity: 0.6;
 }
@@ -85,6 +89,10 @@
     opacity: 1;
     transition: opacity 0.4s linear 0s;
     text-decoration: none;
+}
+
+.navigation__myFilms_active {
+    color: #3DDC84;
 }
 
 .navigation__myFilms:hover {

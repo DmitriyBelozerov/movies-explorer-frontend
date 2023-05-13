@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { TranslationLogIn } from '../../contexts/Context';
 
@@ -32,9 +32,8 @@ function Navigation(props) {
         <section className="navigation">
             <Link to="/signup" className={classNavigatorRegistration}>{props.signUp}</Link>
             <Link to="/signin" className={classNavigatorEnter}>{props.signIn}</Link>
-
-            <Link to="/movies" className={classNavigatorFilms}>{props.films}</Link>
-            <Link to="/saved-movies" className={classNavigatorMyFilms}>{props.myFilms}</Link>
+            <NavLink to="/movies" className={({isActive}) => `${classNavigatorFilms} ${isActive && "navigation__films_active"}`}>{props.films}</NavLink>
+            <NavLink to="/saved-movies" className={({isActive}) => `${classNavigatorMyFilms} ${isActive && "navigation__myFilms_active"}`}>{props.myFilms}</NavLink>
             <Link to="/profile" className={classNavigatorAccount}>{props.account}</Link>
             <button className={classNavigatorBurgerButton} onClick={handleClick}></button>
             <BurgerMenu isOpen={burgerMenu} isClose={closePopup}></BurgerMenu>
