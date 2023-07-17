@@ -1,0 +1,45 @@
+.moreMoves {
+    max-width: 1280px;
+    padding: 47px 70px 80px 70px;
+}
+
+.moreMoves_hiden_true {
+    display: none;
+}
+
+.moreMoves__button {
+    height: 36px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background: #2F2F2F;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 1;
+    transition: opacity 0.4s linear 0s;
+}
+
+.moreMoves__button:hover {
+    opacity: 0.6;
+}
+
+
+
+
+@media (max-width: 770px) {
+    .moreMoves {
+        padding: 50px 30px 80px;
+
+    }
+}
+
+@media (max-width: 330px) {
+    .moreMoves {
+        padding: 50px 10px 80px;
+
+    }
+}

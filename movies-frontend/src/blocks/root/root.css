@@ -1,0 +1,17 @@
+.page {
+    background: #202020;
+    font-family: 'Inter', Helvetica, Arial;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: auto;
+    height: 100%;
+}
+
+.html {
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}

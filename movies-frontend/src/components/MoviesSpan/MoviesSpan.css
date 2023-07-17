@@ -1,0 +1,10 @@
+.movies-span__message {
+    color: #fff;
+    width: 100%;
+    display: none;
+    text-align: center;
+}
+
+.movies-span__message_view_true {
+    display: block;
+}
