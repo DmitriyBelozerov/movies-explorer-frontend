@@ -1,10 +1,10 @@
 
-Проект: "Movie": В рамках дипломной работы по курсу Frontend разработчик.
+Проект: "Movie". В рамках дипломной работы по курсу Frontend разработчик.
+Фронтенд часть. 
+Цель - дать возможность искать и сохранять у себя в избраном любимые фильмы и короткометражки.
+Использован React. В проекте есть авторизация.
+Планы по доработке:
+ - Рефакторинг повторяющегося кода.
+ - Более гибкая и информативная валидация.
 
-IP: 158.160.0.169
-
-belozerov.nomoredomains.monster
-
-ссылка на макет: https://disk.yandex.ru/d/MbC80VvR8pEP9A
-
-ссылка на Pull https://github.com/DmitriyBelozerov/movies-explorer-frontend/pull/3
+Ссылка на Backend приложения: https://github.com/DmitriyBelozerov/movies-explorer-api
